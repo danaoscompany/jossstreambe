@@ -1,8 +1,9 @@
 var purchases;
 
 $(document).ready(function() {
+    console.log("Document is ready");
     show("Document is ready");
-    getPurchases();
+    //getPurchases();
 });
 
 function getPurchases() {
