@@ -87,7 +87,7 @@ function setChannelClickListener() {
                         processData: false,
                         contentType: false,
                         cache: false,
-                        success: function(fileName) {
+                        success: function(a) {
                             console.log("File name: "+fileName);
                             var fileURL = "http://iptvjoss.com/jossstreambe/userdata/imgs/"+fileName;
                             hideProgress();
