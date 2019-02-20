@@ -214,7 +214,6 @@ function setChannelClickListener() {
             $("#confirm-container").fadeOut(300);
         });
         $("#confirm-container").css("display", "flex").hide().fadeIn(300);
-        show("Channel dihapus");
     });
 }
 
@@ -300,7 +299,11 @@ function addChannel() {
             return;
         }
         var id = name.split(" ").join('.');
-        channels.push({'id': id, 'name': name, 'logo': logoURL, 'category': category, 'url': url});
+        console.log("URL Channel: "+url);
+        var newChannel = {'id': id, 'name': name, 'logo': logoURL, 'category': category, 'url': url};
+        channels.push(newChannel);
+        console.log("URL Channel (2): "+newChannel["url"]);
+        console.log("URL Channel (3): "+channels[channels.length-1]["url"]);
         $("#channels").append(""+
             "<tr>"+
             "<td><div style='background-color: #2f2e4d; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: white;'>"+channels.length+"</div></td>"+
@@ -336,7 +339,7 @@ function addChannel() {
             success: function(a) {
                 $("#edit-channel-container").fadeOut(300);
                 hideProgress();
-                show("Channel disimpan");
+                show("Channel baru ditambahkan");
             }
         });
     });
