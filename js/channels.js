@@ -74,6 +74,24 @@ function setChannelClickListener() {
                 var fr = new FileReader();
                 fr.onload = function() {
                     $("#edit-channel-logo").attr("src", fr.result);
+                    showProgress("Mengunggah logo");
+                    var fd = new FormData();
+                    fd.append("logo_data", fr.result);
+                    $.ajax({
+                        type: 'POST',
+                        url: PHP_PATH+'upload-image.php',
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function(a) {
+                            var fileName = a;
+                            var fileURL = "http://iptvjoss.com/jossstreambe/userdata/imgs/"+fileName;
+                            hideProgress();
+                            show("Logo channel berhasil dirubah");
+                            channels[index]["logo"] = fileURL;
+                        }
+                    });
                 };
                 fr.readAsDataURL($("#select-logo").prop("files")[0]);
             }).click();
