@@ -42,6 +42,9 @@
             <img src="img/settings-2.png" width="50px" height="50px">
             <div style="margin-left: 10px; font-size: 25px; color: #717179;">Daftar Channel</div>
         </div>
+        <div style="display: flex; justify-content: flex-end; width: 1000px; margin-left: 20px;">
+            <button onclick="addChannel()" class="button6">Tambah Channel</button>
+        </div>
         <table class="flat-table" style="width: 1000px; margin-left: 20px; margin-top: 10px;">
             <thead>
             <tr>
@@ -72,6 +75,12 @@
         <input class="input2" id="edit-channel-name" type="text" style="margin-left: 20px; margin-right: 20px;">
         <div style="color: #333333; font-family: PalanquinBold; margin-left: 20px; margin-right: 20px;">Kategori:</div>
         <input class="input2" id="edit-channel-category" type="text" style="margin-left: 20px; margin-right: 20px;">
+        <div style="color: #333333; font-family: PalanquinBold; margin-left: 20px; margin-right: 20px;">Logo:</div>
+        <div style="width: 100%; display: flex; align-items: center; flex-flow: column nowrap;">
+            <img id="edit-channel-logo" width="50px" height="50px">
+            <button id="change-logo" class="button6">Ubah Logo</button>
+            <input type="file" id="select-logo" style="width: 0; height: 0; visibility: hidden;">
+        </div>
         <div style="color: #333333; font-family: PalanquinBold; margin-left: 20px; margin-right: 20px;">URL:</div>
         <input class="input2" id="edit-channel-url" type="text" style="margin-left: 20px; margin-right: 20px;">
         <div style="width: calc(100% - 15px); display: flex; flex-flow: row nowrap; justify-content: flex-end; margin-top: 10px; margin-right: 15px;">

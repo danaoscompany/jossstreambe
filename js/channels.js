@@ -68,6 +68,16 @@ function setChannelClickListener() {
         $("#edit-channel-name").val(channel["name"]);
         $("#edit-channel-category").val(channel["category"]);
         $("#edit-channel-url").val(channel["url"]);
+        $("#edit-channel-logo").attr("src", channel["logo"]);
+        $("#change-logo").unbind().on("click", function() {
+            $("#select-logo").on("change", function() {
+                var fr = new FileReader();
+                fr.onload = function() {
+                    $("#edit-channel-logo").attr("src", fr.result);
+                };
+                fr.readAsDataURL($("#select-logo").prop("files")[0]);
+            }).click();
+        });
         $("#edit-channel-ok").unbind().on("click", function() {
             var name = $("#edit-channel-name").val();
             var category = $("#edit-channel-category").val();
@@ -138,4 +148,10 @@ function isCategoryAlreadyAdded(name) {
         }
     }
     return false;
+}
+
+function addChannel() {
+    $("#edit-channel-name").val("");
+    $("#edit-channel-category").val("");
+    $("#edit-channel-url").val("");
 }
