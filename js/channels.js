@@ -69,6 +69,7 @@ function setChannelClickListener() {
         $("#edit-channel-category").val(channel["category"]);
         $("#edit-channel-url").val(channel["url"]);
         $("#edit-channel-logo").attr("src", channel["logo"]);
+        $("#edit-channel-title").html("Ubah Channel");
         $("#change-logo").unbind().on("click", function() {
             $("#select-logo").on("change", function() {
                 var file = $("#select-logo").prop("files")[0];
@@ -220,9 +221,73 @@ function isCategoryAlreadyAdded(name) {
 }
 
 function addChannel() {
+    var logoURL = "";
     $("#edit-channel-name").val("");
     $("#edit-channel-category").val("");
     $("#edit-channel-url").val("");
+    $("#edit-channel-logo").attr("src", "");
+    $("#edit-channel-title").html("Tambah Channel");
+    $("#change-logo").unbind().on("click", function() {
+        $("#select-logo").on("change", function() {
+            var file = $("#select-logo").prop("files")[0];
+            var fr = new FileReader();
+            fr.onload = function() {
+                $("#edit-channel-logo").attr("src", fr.result);
+                showProgress("Mengunggah logo");
+                var fd = new FormData();
+                var fileName = generateRandomID(14);
+                fd.append("file", file);
+                fd.append("file_name", fileName);
+                $.ajax({
+                    type: 'POST',
+                    url: PHP_PATH+'upload-image.php',
+                    data: fd,
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success: function(a) {
+                        console.log("File name: "+fileName);
+                        var fileURL = "http://iptvjoss.com/jossstreambe/userdata/imgs/"+fileName;
+                        logoURL = fileURL;
+                    }
+                });
+            };
+            fr.readAsDataURL(file);
+        }).click();
+    });
+    $("#edit-channel-ok").unbind().on("click", function() {
+        var name = $("#edit-channel-name").val().trim();
+        var category = $("#edit-channel-category").val().trim();
+        var url = $("#edit-channel-url").val().trim();
+        var logo = logoURL;
+        if (name == "") {
+            show("Mohon masukkan nama channel");
+            return;
+        }
+        if (category == "") {
+            show("Mohon masukkan kategori channel");
+            return;
+        }
+        if (url == "") {
+            show("Mohon masukkan URL channel");
+            return;
+        }
+        var id = name.split(" ").join('.');
+        channels.push({'id': id, 'name': name, 'logo': logoURL, 'category': category, 'url': url});
+        $("#channels").append(""+
+            "<tr>"+
+            "<td><div style='background-color: #2f2e4d; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: white;'>"+channels.length+"</div></td>"+
+            "<td>"+id+"</td>"+
+            "<td class='channel-name'>"+name+"</td>"+
+            "<td><img src='"+logo+"' width='40px' height='40px'></td>"+
+            "<td class='category'>"+category+"</td>"+
+            "<td class='url'>"+url+"</td>"+
+            "<td><a class='edit-channel link'>Ubah</a></td>"+
+            "<td><a class='delete-channel link'>Hapus</a></td>"+
+            "</tr>"
+        );
+        setChannelClickListener();
+    });
 }
 
 function generateRandomID(length) {
