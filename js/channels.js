@@ -71,12 +71,15 @@ function setChannelClickListener() {
         $("#edit-channel-logo").attr("src", channel["logo"]);
         $("#change-logo").unbind().on("click", function() {
             $("#select-logo").on("change", function() {
+                var file = $("#select-logo").prop("files")[0];
                 var fr = new FileReader();
                 fr.onload = function() {
                     $("#edit-channel-logo").attr("src", fr.result);
                     showProgress("Mengunggah logo");
                     var fd = new FormData();
-                    fd.append("logo_data", fr.result);
+                    var fileName = generateRandomID(14);
+                    fd.append("file", file);
+                    fd.append("file_name", fileName);
                     $.ajax({
                         type: 'POST',
                         url: PHP_PATH+'upload-image.php',
@@ -93,7 +96,7 @@ function setChannelClickListener() {
                         }
                     });
                 };
-                fr.readAsDataURL($("#select-logo").prop("files")[0]);
+                fr.readAsDataURL(file);
             }).click();
         });
         $("#edit-channel-ok").unbind().on("click", function() {
@@ -172,4 +175,12 @@ function addChannel() {
     $("#edit-channel-name").val("");
     $("#edit-channel-category").val("");
     $("#edit-channel-url").val("");
+}
+
+function generateRandomID(length) {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (var i = 0; i < length; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    return text;
 }

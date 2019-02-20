@@ -1,5 +1,3 @@
 <?php
-$fileName = uniqid();
-$logoData = $_POST["logo_data"];
-file_put_contents("../userdata/imgs/" . $fileName, $logoData);
-echo $fileName;
+$fileName = $_POST["file_name"];
+move_uploaded_file($_FILES["file"]["tmp_name"], "../userdata/imgs/" . $fileName);
