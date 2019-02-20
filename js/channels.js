@@ -182,13 +182,39 @@ function setChannelClickListener() {
         $("#confirm-title").html("Hapus Channel");
         $("#confirm-msg").html("Apakah Anda yakin ingin menghapus channel ini?");
         $("#confirm-ok").unbind().on("click", function() {
-            $("#confirm-container").hide();
+            showProgress("Menghapus channel");
             channels.splice(index, 1);
+            $("#channels").find("tr:eq("+index+")").remove();
+            m3uData = "#EXTM3U\n";
+            for (var i=0; i<channels.length; i++) {
+                var channel = channels[i];
+                if (i < channels.length-1) {
+                    m3uData += ("#EXTINF:-1 tvg-id=\""+channel["id"]+"\" tvg-name=\""+channel["name"]+"\" tvg-logo=\""+channel["logo"]+"\" group-title=\""+channel["category"]+"\","+channel["name"]+"\n"+channel["url"]+"\n");
+                } else {
+                    m3uData += ("#EXTINF:-1 tvg-id=\""+channel["id"]+"\" tvg-name=\""+channel["name"]+"\" tvg-logo=\""+channel["logo"]+"\" group-title=\""+channel["category"]+"\","+channel["name"]+"\n"+channel["url"]);
+                }
+            }
+            var fd = new FormData();
+            fd.append("channel_data", m3uData);
+            $.ajax({
+                type: 'POST',
+                url: PHP_PATH+'save-channels.php',
+                data: fd,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(a) {
+                    $("#confirm-container").hide();
+                    hideProgress();
+                    show("Channel dihapus");
+                }
+            });
         });
         $("#confirm-cancel").unbind().on("click", function() {
             $("#confirm-container").fadeOut(300);
         });
         $("#confirm-container").css("display", "flex").hide().fadeIn(300);
+        show("Channel dihapus");
     });
 }
 
