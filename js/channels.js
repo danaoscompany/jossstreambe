@@ -90,10 +90,31 @@ function setChannelClickListener() {
                         success: function(a) {
                             console.log("File name: "+fileName);
                             var fileURL = "http://iptvjoss.com/jossstreambe/userdata/imgs/"+fileName;
-                            hideProgress();
-                            show("Logo channel berhasil dirubah");
                             channels[index]["logo"] = fileURL;
                             $("#channels").find("img:eq("+index+")").attr("src", fileURL);
+                            m3uData = "#EXTM3U\n";
+                            for (var i=0; i<channels.length; i++) {
+                                var channel = channels[i];
+                                if (i < channels.length-1) {
+                                    m3uData += ("#EXTINF:-1 tvg-id=\""+channel["id"]+"\" tvg-name=\""+channel["name"]+"\" tvg-logo=\""+channel["logo"]+"\" group-title=\""+channel["category"]+"\","+channel["name"]+"\n"+channel["url"]+"\n");
+                                } else {
+                                    m3uData += ("#EXTINF:-1 tvg-id=\""+channel["id"]+"\" tvg-name=\""+channel["name"]+"\" tvg-logo=\""+channel["logo"]+"\" group-title=\""+channel["category"]+"\","+channel["name"]+"\n"+channel["url"]);
+                                }
+                            }
+                            var fd = new FormData();
+                            fd.append("channel_data", m3uData);
+                            $.ajax({
+                                type: 'POST',
+                                url: PHP_PATH+'save-channels.php',
+                                data: fd,
+                                processData: false,
+                                contentType: false,
+                                cache: false,
+                                success: function(a) {
+                                    hideProgress();
+                                    show("Logo channel berhasil dirubah");
+                                }
+                            });
                         }
                     });
                 };

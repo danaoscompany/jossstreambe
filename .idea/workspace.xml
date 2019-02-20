@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fad0f770-8cad-4345-b3dd-fb30ca8c409c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/php/save-channels.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/channels.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/channels.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,11 +60,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/channels.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="95" column="90" lean-forward="true" selection-start-line="95" selection-start-column="90" selection-end-line="95" selection-end-column="90" />
+            <state relative-caret-position="442">
+              <caret line="113" column="34" selection-start-line="113" selection-start-column="34" selection-end-line="113" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/save-channels.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="59" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -232,6 +242,7 @@
         <option value="$PROJECT_DIR$/users.html" />
         <option value="$PROJECT_DIR$/channels.html" />
         <option value="$PROJECT_DIR$/php/upload-image.php" />
+        <option value="$PROJECT_DIR$/php/save-channels.php" />
         <option value="$PROJECT_DIR$/js/channels.js" />
       </list>
     </option>
@@ -257,6 +268,11 @@
             <path>
               <item name="jossstreambe" type="b2602c69:ProjectViewProjectNode" />
               <item name="jossstreambe" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jossstreambe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jossstreambe" type="462c0819:PsiDirectoryNode" />
+              <item name="php" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -328,12 +344,12 @@
       <workItem from="1550677845685" duration="1953000" />
       <workItem from="1550679840204" duration="1783000" />
       <workItem from="1550681666705" duration="1770000" />
-      <workItem from="1550683482258" duration="1270000" />
+      <workItem from="1550683482258" duration="1661000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48488000" />
+    <option name="totallyTimeSpent" value="48879000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -850,10 +866,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/php/save-channels.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="59" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/channels.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="95" column="90" lean-forward="true" selection-start-line="95" selection-start-column="90" selection-end-line="95" selection-end-column="90" />
+        <state relative-caret-position="442">
+          <caret line="113" column="34" selection-start-line="113" selection-start-column="34" selection-end-line="113" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
           </folding>
