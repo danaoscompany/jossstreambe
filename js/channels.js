@@ -288,6 +288,8 @@ function addChannel() {
             "</tr>"
         );
         setChannelClickListener();
+        $("#edit-channel-container").fadeOut(300);
+        show("Channel baru ditambahkan");
     });
     $("#edit-channel-container").css("display", "flex").hide().fadeIn(300);
 }
