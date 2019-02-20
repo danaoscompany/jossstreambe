@@ -288,6 +288,7 @@ function addChannel() {
         );
         setChannelClickListener();
     });
+    $("#edit-channel-container").css("display", "flex").hide().fadeIn(300);
 }
 
 function generateRandomID(length) {
