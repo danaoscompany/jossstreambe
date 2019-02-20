@@ -27,8 +27,8 @@ function getPurchases() {
                 dateText += " ";
                 dateText += date.getFullYear();
                 var desc = purchase["descr"];
-                if (desc.length >= 79) {
-                    desc = desc.substr(0, 79);
+                if (desc.length >= 39) {
+                    desc = desc.substr(0, 39);
                     desc += "...";
                 }
                 $("#purchases").append(""+
