@@ -41,10 +41,10 @@ function getChannels() {
                         "<tr>"+
                         "<td><div style='background-color: #2f2e4d; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: white;'>"+i+"</div></td>"+
                         "<td>"+id+"</td>"+
-                        "<td>"+name+"</td>"+
+                        "<td class='channel-name'>"+name+"</td>"+
                         "<td><img src='"+logo+"' width='40px' height='40px'></td>"+
-                        "<td>"+category+"</td>"+
-                        "<td>"+channelURL+"</td>"+
+                        "<td class='category'>"+category+"</td>"+
+                        "<td class='url'>"+channelURL+"</td>"+
                         "<td><a class='edit-channel link'>Ubah</a></td>"+
                         "<td><a class='delete-channel link'>Hapus</a></td>"+
                         "</tr>"
@@ -140,8 +140,34 @@ function setChannelClickListener() {
             channels[index]["name"] = name;
             channels[index]["category"] = category;
             channels[index]["url"] = url;
-            $("#edit-channel-container").fadeOut(300);
-            show("Channel disimpan");
+            $("#channels").find(".channel-name:eq("+index+")").html(name);
+            $("#channels").find(".category:eq("+index+")").html(category);
+            $("#channels").find(".url:eq("+index+")").html(url);
+            showProgress("Menyimpan channel");
+            m3uData = "#EXTM3U\n";
+            for (var i=0; i<channels.length; i++) {
+                var channel = channels[i];
+                if (i < channels.length-1) {
+                    m3uData += ("#EXTINF:-1 tvg-id=\""+channel["id"]+"\" tvg-name=\""+channel["name"]+"\" tvg-logo=\""+channel["logo"]+"\" group-title=\""+channel["category"]+"\","+channel["name"]+"\n"+channel["url"]+"\n");
+                } else {
+                    m3uData += ("#EXTINF:-1 tvg-id=\""+channel["id"]+"\" tvg-name=\""+channel["name"]+"\" tvg-logo=\""+channel["logo"]+"\" group-title=\""+channel["category"]+"\","+channel["name"]+"\n"+channel["url"]);
+                }
+            }
+            var fd = new FormData();
+            fd.append("channel_data", m3uData);
+            $.ajax({
+                type: 'POST',
+                url: PHP_PATH+'save-channels.php',
+                data: fd,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(a) {
+                    $("#edit-channel-container").fadeOut(300);
+                    hideProgress();
+                    show("Channel disimpan");
+                }
+            });
         });
         $("#edit-channel-cancel").unbind().on("click", function() {
             $("#edit-channel-container").fadeOut(300);
