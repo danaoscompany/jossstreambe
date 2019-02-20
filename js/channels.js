@@ -288,8 +288,31 @@ function addChannel() {
             "</tr>"
         );
         setChannelClickListener();
-        $("#edit-channel-container").fadeOut(300);
-        show("Channel baru ditambahkan");
+        m3uData = "#EXTM3U\n";
+        for (var i=0; i<channels.length; i++) {
+            var channel = channels[i];
+            if (i < channels.length-1) {
+                m3uData += ("#EXTINF:-1 tvg-id=\""+channel["id"]+"\" tvg-name=\""+channel["name"]+"\" tvg-logo=\""+channel["logo"]+"\" group-title=\""+channel["category"]+"\","+channel["name"]+"\n"+channel["url"]+"\n");
+            } else {
+                m3uData += ("#EXTINF:-1 tvg-id=\""+channel["id"]+"\" tvg-name=\""+channel["name"]+"\" tvg-logo=\""+channel["logo"]+"\" group-title=\""+channel["category"]+"\","+channel["name"]+"\n"+channel["url"]);
+            }
+        }
+        var fd = new FormData();
+        fd.append("channel_data", m3uData);
+        showProgress("Menambah channel");
+        $.ajax({
+            type: 'POST',
+            url: PHP_PATH+'save-channels.php',
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function(a) {
+                $("#edit-channel-container").fadeOut(300);
+                hideProgress();
+                show("Channel disimpan");
+            }
+        });
     });
     $("#edit-channel-container").css("display", "flex").hide().fadeIn(300);
 }
