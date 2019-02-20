@@ -93,6 +93,7 @@ function setChannelClickListener() {
                             hideProgress();
                             show("Logo channel berhasil dirubah");
                             channels[index]["logo"] = fileURL;
+                            $("#channels").find("tr:eq("+index+")").find("td:eq(4)").find("img").attr("src", fileURL);
                         }
                     });
                 };
