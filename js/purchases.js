@@ -26,12 +26,17 @@ function getPurchases() {
                 dateText += monthNames[date.getMonth()];
                 dateText += " ";
                 dateText += date.getFullYear();
+                var desc = purchase["descr"];
+                if (desc.length >= 79) {
+                    desc = desc.substr(0, 79);
+                    desc += "...";
+                }
                 $("#purchases").append(""+
                     "<tr>"+
                     "<td><div style='background-color: #2f2e4d; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: white;'>"+i+"</div></td>"+
                     "<td>"+purchase["email"]+"</td>"+
                     "<td>Rp "+purchase["price"]+"</td>"+
-                    "<td>"+purchase["descr"]+"</td>"+
+                    "<td>"+desc+"</td>"+
                     "<td>"+dateText+"</td>"+
                     "<td><a class='view-purchase link'>Lihat</a></td>"+
                     "<td><a class='delete-purchase link'>Hapus</a></td>"+
