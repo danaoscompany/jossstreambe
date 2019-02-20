@@ -1,6 +1,7 @@
 var purchases;
 
 $(document).ready(function() {
+    show("Document is ready");
     getPurchases();
 });
 
@@ -12,6 +13,7 @@ function getPurchases() {
         dataType: 'text',
         cache: false,
         success: function(a) {
+            console.log(a);
             purchases = JSON.parse(a);
             for (var i=0; i<purchases.length; i++) {
                 var purchase = purchases[i];
