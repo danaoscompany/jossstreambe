@@ -249,6 +249,7 @@ function addChannel() {
                         console.log("File name: "+fileName);
                         var fileURL = "http://iptvjoss.com/jossstreambe/userdata/imgs/"+fileName;
                         logoURL = fileURL;
+                        hideProgress();
                     }
                 });
             };
