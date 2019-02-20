@@ -84,8 +84,8 @@ function setChannelClickListener() {
                         processData: false,
                         contentType: false,
                         cache: false,
-                        success: function(a) {
-                            var fileName = a;
+                        success: function(fileName) {
+                            console.log("File name: "+fileName);
                             var fileURL = "http://iptvjoss.com/jossstreambe/userdata/imgs/"+fileName;
                             hideProgress();
                             show("Logo channel berhasil dirubah");
