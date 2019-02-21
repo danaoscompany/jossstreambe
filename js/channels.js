@@ -11,7 +11,7 @@ function getChannels() {
     $("#channels").find("*").remove();
     $.ajax({
         type: 'GET',
-        url: 'http://danaos.xyz/iptv/channels.m3u',
+        url: 'http://danaos.xyz/jossstreambe/channels.m3u',
         dataType: 'text',
         cache: false,
         success: function(a) {
