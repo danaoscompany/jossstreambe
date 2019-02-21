@@ -1,2 +1,2 @@
 <?php
-echo file_get_contents("../../iptv/systemdata/settings.json");
+echo file_get_contents("../systemdata/settings.json");

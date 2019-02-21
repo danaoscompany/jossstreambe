@@ -1,3 +1,3 @@
 <?php
 $settings = $_POST["content"];
-file_put_contents("../../iptv/systemdata/settings.json", $settings);
+file_put_contents("../systemdata/settings.json", $settings);
