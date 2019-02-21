@@ -1,4 +1,4 @@
-const PHP_PATH = "http://iptvjoss.com/jossstreambe/php/";
+const PHP_PATH = "http://danaos.xyz/jossstreambe/php/";
 
 function show(msg) {
     $("#toast-msg").html(msg);
