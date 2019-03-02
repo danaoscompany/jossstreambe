@@ -1,6 +1,7 @@
 <?php
 include 'db.php';
 $results = $c->query("SELECT * FROM users");
+echo "Hello, world";
 $users = [];
 if ($results && $results->num_rows > 0) {
     while ($row = $results->fetch_assoc()) {
