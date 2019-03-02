@@ -2,11 +2,11 @@ var m3uData;
 var channels = [];
 
 $(document).ready(function() {
-    if (location.protocol != 'https:') {
-        location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-    } else {
-        getChannels();
+    if (location.protocol !== "https:") {
+        location.protocol = "https:";
+        return;
     }
+    getChannels();
 });
 
 function getChannels() {
