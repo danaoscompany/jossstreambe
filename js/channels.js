@@ -2,6 +2,9 @@ var m3uData;
 var channels = [];
 
 $(document).ready(function() {
+    if (location.protocol !== 'https:') {
+        location.protocol = 'https:';
+    }
     getChannels();
 });
 
