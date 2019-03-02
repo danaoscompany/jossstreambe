@@ -1,3 +1,3 @@
 <?php
-$c = new mysqli("localhost", "u954666570_admin", "HelloWorld123");
-$c->select_db("u954666570_iptv");
+$c = new mysqli("localhost", "iptc8859_admin", "HelloWorld123");
+$c->select_db("iptc8859_iptv");

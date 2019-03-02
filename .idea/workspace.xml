@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fad0f770-8cad-4345-b3dd-fb30ca8c409c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/php/get-users.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/get-users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/db.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,11 +12,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/get-users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+            <state relative-caret-position="17">
+              <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/db.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -25,7 +34,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>create-adm</find>
       <find>edit-admin.php</find>
       <find>edit-user</find>
       <find>create-user.php</find>
@@ -55,6 +63,7 @@
       <find>iptvjoss.com</find>
       <find>localhost</find>
       <find>danaos.xyz</find>
+      <find>iptc8859_iptv</find>
     </findStrings>
     <replaceStrings>
       <replace>showProgress</replace>
@@ -111,12 +120,12 @@
         <option value="$PROJECT_DIR$/users.html" />
         <option value="$PROJECT_DIR$/php/upload-image.php" />
         <option value="$PROJECT_DIR$/channels.html" />
-        <option value="$PROJECT_DIR$/php/db.php" />
         <option value="$PROJECT_DIR$/php/get-settings.php" />
         <option value="$PROJECT_DIR$/php/update-settings.php" />
         <option value="$PROJECT_DIR$/php/save-channels.php" />
         <option value="$PROJECT_DIR$/js/channels.js" />
         <option value="$PROJECT_DIR$/php/get-users.php" />
+        <option value="$PROJECT_DIR$/php/db.php" />
       </list>
     </option>
   </component>
@@ -228,12 +237,12 @@
       <workItem from="1550694193756" duration="381000" />
       <workItem from="1550727186353" duration="1036000" />
       <workItem from="1550729797525" duration="115000" />
-      <workItem from="1551535888167" duration="306000" />
+      <workItem from="1551535888167" duration="346000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53572000" />
+    <option name="totallyTimeSpent" value="53612000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -747,13 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="33" lean-forward="true" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -766,8 +768,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/get-users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+        <state relative-caret-position="17">
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
         </state>
       </provider>
     </entry>
