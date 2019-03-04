@@ -115,8 +115,86 @@ function addNewBank() {
     updateSettings();
 }
 
-function saveSettings() {
+function validate(evt) {
+    var theEvent = evt || window.event;
+    // Handle paste
+    if (theEvent.type === 'paste') {
+        key = event.clipboardData.getData('text/plain');
+    } else {
+        // Handle key press
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+    }
+    var regex = /[0-9]|\./;
+    if( !regex.test(key) ) {
+        theEvent.returnValue = false;
+        if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+}
 
+function saveSettings() {
+    var month1Price = $("#month-1").val().trim();
+    var month1Feature1 = $("#month-1-feature-1").val().trim();
+    var month1Feature2 = $("#month-1-feature-2").val().trim();
+    var month1Feature3 = $("#month-1-feature-3").val().trim();
+    var month1Feature4 = $("#month-1-feature-4").val().trim();
+    var month3Price = $("#month-3").val().trim();
+    var month3Feature1 = $("#month-3-feature-1").val().trim();
+    var month3Feature2 = $("#month-3-feature-2").val().trim();
+    var month3Feature3 = $("#month-3-feature-3").val().trim();
+    var month3Feature4 = $("#month-3-feature-4").val().trim();
+    var month6Price = $("#month-6").val().trim();
+    var month6Feature1 = $("#month-6-feature-1").val().trim();
+    var month6Feature2 = $("#month-6-feature-2").val().trim();
+    var month6Feature3 = $("#month-6-feature-3").val().trim();
+    var month6Feature4 = $("#month-6-feature-4").val().trim();
+    var month12Price = $("#month-12").val().trim();
+    var month12Feature1 = $("#month-12-feature-1").val().trim();
+    var month12Feature2 = $("#month-12-feature-2").val().trim();
+    var month12Feature3 = $("#month-12-feature-3").val().trim();
+    var month12Feature4 = $("#month-12-feature-4").val().trim();
+    if (month1Price == '' || month1Feature1 == '' || month1Feature2 == '' || month1Feature3 == '' || month1Feature4 == ''
+        || month3Price == '' || month3Feature1 == '' || month3Feature2 == '' || month3Feature3 == '' || month3Feature4 == ''
+        || month6Price == '' || month6Feature1 == '' || month6Feature2 == '' || month6Feature3 == '' || month6Feature4 == ''
+        || month12Price == '' || month12Feature1 == '' || month12Feature2 == '' || month12Feature3 == '' || month12Feature4 == '') {
+        show("Mohon isi semua input");
+        return;
+    }
+    settings["settings"]["purchasing"][0]["price"] = parseInt(month1Price);
+    settings["settings"]["purchasing"][0]["features"][0]["msg"] = month1Feature1;
+    settings["settings"]["purchasing"][0]["features"][1]["msg"] = month1Feature2;
+    settings["settings"]["purchasing"][0]["features"][2]["msg"] = month1Feature3;
+    settings["settings"]["purchasing"][0]["features"][3]["msg"] = month1Feature4;
+    settings["settings"]["purchasing"][1]["price"] = parseInt(month3Price);
+    settings["settings"]["purchasing"][1]["features"][0]["msg"] = month3Feature1;
+    settings["settings"]["purchasing"][1]["features"][1]["msg"] = month3Feature2;
+    settings["settings"]["purchasing"][1]["features"][2]["msg"] = month3Feature3;
+    settings["settings"]["purchasing"][1]["features"][3]["msg"] = month3Feature4;
+    settings["settings"]["purchasing"][2]["price"] = parseInt(month6Price);
+    settings["settings"]["purchasing"][2]["features"][0]["msg"] = month6Feature1;
+    settings["settings"]["purchasing"][2]["features"][1]["msg"] = month6Feature2;
+    settings["settings"]["purchasing"][2]["features"][2]["msg"] = month6Feature3;
+    settings["settings"]["purchasing"][2]["features"][3]["msg"] = month6Feature4;
+    settings["settings"]["purchasing"][3]["price"] = parseInt(month12Price);
+    settings["settings"]["purchasing"][3]["features"][0]["msg"] = month12Feature1;
+    settings["settings"]["purchasing"][3]["features"][1]["msg"] = month12Feature2;
+    settings["settings"]["purchasing"][3]["features"][2]["msg"] = month12Feature3;
+    settings["settings"]["purchasing"][3]["features"][3]["msg"] = month12Feature4;
+    showProgress("Menyimpan pengaturan");
+    var fd = new FormData();
+    fd.append("content", JSON.stringify(settings));
+    $.ajax({
+        type: 'POST',
+        url: PHP_PATH+'update-settings.php',
+        data: fd,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function(a) {
+            hideProgress();
+            show("Pengaturan disimpan");
+        }
+    });
 }
 
 function updateSettings() {
