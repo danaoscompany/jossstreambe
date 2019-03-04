@@ -4,10 +4,6 @@ var currentProfilePicture = "";
 var admins;
 
 $(document).ready(function() {
-    if (location.protocol !== 'https:') {
-        location.protocol = 'https:';
-        return;
-    }
     getAdmins();
 });
 

@@ -4,10 +4,6 @@ var currentProfilePicture = "";
 var users;
 
 $(document).ready(function() {
-    if (location.protocol !== 'protocol') {
-        location.protocol = 'https:';
-        return;
-    }
     getUsers();
 });
 

@@ -1,10 +1,6 @@
 var purchases;
 
 $(document).ready(function() {
-    if (location.protocol !== 'protocol') {
-        location.protocol = 'https:';
-        return;
-    }
     getPurchases();
 });
 

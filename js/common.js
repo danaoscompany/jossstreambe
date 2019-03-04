@@ -2,10 +2,6 @@ var settings;
 var banks;
 
 $(document).ready(function() {
-    if (location.protocol !== 'https:') {
-        location.protocol = 'https';
-        return;
-    }
     getSettings();
 });
 
