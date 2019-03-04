@@ -157,7 +157,7 @@ function saveSettings() {
         || month3Price == '' || month3Feature1 == '' || month3Feature2 == '' || month3Feature3 == '' || month3Feature4 == ''
         || month6Price == '' || month6Feature1 == '' || month6Feature2 == '' || month6Feature3 == '' || month6Feature4 == ''
         || month12Price == '' || month12Feature1 == '' || month12Feature2 == '' || month12Feature3 == '' || month12Feature4 == '') {
-        show("Mohon isi semua input");
+        show("Mohon isi semua kotak yang ada");
         return;
     }
     settings["settings"]["purchasing"][0]["price"] = parseInt(month1Price);
