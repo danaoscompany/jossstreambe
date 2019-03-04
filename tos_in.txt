@@ -9,7 +9,7 @@ Dengan mengakses aplikasi ini, Anda setuju untuk terikat oleh Syarat dan Ketentu
 Izin diberikan untuk mengunduh sementara satu salinan materi di App JossStream untuk hanya melihat sementara, non-komersial. Ini adalah pemberian lisensi, bukan transfer judul, dan di bawah lisensi ini Anda tidak boleh:
 
     memodifikasi atau menyalin materi;
-    cobalah mengendus data apa pun saat menggunakan aplikasi Joss Stream;
+    mencoba merekam data apa pun saat menggunakan aplikasi Joss Stream;
     merekam konten streaming langsung dari aplikasi Joss Stream;
     menggunakan materi untuk tujuan komersial atau untuk tampilan publik;
     berupaya merekayasa balik perangkat lunak apa pun yang terdapat pada Aplikasi JossStream; menghapus hak cipta atau notasi kepemilikan lainnya dari materi; atau
