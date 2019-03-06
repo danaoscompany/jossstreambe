@@ -165,6 +165,7 @@ function setUserClickListener() {
         });
         $("#confirm-msg").html("Apakah Anda yakin ingin menghapus pengguna ini?");
         $("#confirm-ok").unbind().on("click", function() {
+            $("#confirm-container").hide();
             showProgress("Menghapus pengguna");
             $.ajax({
                 type: 'GET',
