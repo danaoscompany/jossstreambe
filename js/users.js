@@ -1,4 +1,3 @@
-var currentActiveConnections = 0;
 var currentMaximumConnections = 1;
 var currentProfilePicture = "";
 var users;
@@ -85,7 +84,7 @@ function setUserClickListener() {
             if ($("#edit-user-confirmed").prop("checked")) {
                 confirmed = 1;
             }
-            var activeConnections = currentActiveConnections;
+            var activeConnections = $("#active-connections").val();
             var maximumConnections = currentMaximumConnections;
             if (name == "") {
                 show("Mohon masukkan nama");
@@ -103,10 +102,6 @@ function setUserClickListener() {
                 show("Mohon masukkan kata sandi");
                 return;
             }
-            /*if (activeConnections <= 0) {
-                show("Mohon masukkan jumlah koneksi aktif minimal 1");
-                return;
-            }*/
             if (maximumConnections <= 0) {
                 show("Mohon masukkan jumlah maksimal koneksi aktif");
                 return;
@@ -188,7 +183,6 @@ function setUserClickListener() {
 }
 
 function addUser() {
-    currentActiveConnections = 0;
     currentMaximumConnections = 1;
     currentProfilePicture = "img/profile-picture.jpg";
     $("#edit-user-title").html("Tambah Pengguna");
@@ -218,7 +212,7 @@ function addUser() {
         if ($("#edit-user-confirmed").prop("checked")) {
             confirmed = 1;
         }
-        var activeConnections = currentActiveConnections;
+        var activeConnections = 0;
         var maximumConnections = currentMaximumConnections;
         if (name == "") {
             show("Mohon masukkan nama");
@@ -236,10 +230,6 @@ function addUser() {
             show("Mohon masukkan kata sandi");
             return;
         }
-        /*if (activeConnections <= 0) {
-            show("Mohon masukkan jumlah koneksi aktif minimal 1");
-            return;
-        }*/
         if (maximumConnections <= 0) {
             show("Mohon masukkan jumlah maksimal koneksi aktif");
             return;
