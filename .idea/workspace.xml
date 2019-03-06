@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fad0f770-8cad-4345-b3dd-fb30ca8c409c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/create-user.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/create-user.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/edit-user.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/edit-user.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="138" column="2" selection-start-line="138" selection-start-column="2" selection-end-line="138" selection-end-column="2" />
+            <state relative-caret-position="169">
+              <caret line="117" column="10" selection-start-line="117" selection-start-column="10" selection-end-line="117" selection-end-column="10" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
               </folding>
@@ -27,7 +24,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/edit-user.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -268,12 +265,12 @@
       <workItem from="1551587164711" duration="24000" />
       <workItem from="1551679949257" duration="1309000" />
       <workItem from="1551762105343" duration="196000" />
-      <workItem from="1551842349543" duration="556000" />
+      <workItem from="1551842349543" duration="712000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57556000" />
+    <option name="totallyTimeSpent" value="57712000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -815,20 +812,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="117" column="10" selection-start-line="117" selection-start-column="10" selection-end-line="117" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/php/edit-user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="138" column="2" selection-start-line="138" selection-start-column="2" selection-end-line="138" selection-end-column="2" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

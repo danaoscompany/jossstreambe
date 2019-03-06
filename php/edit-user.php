@@ -13,6 +13,6 @@ $endDate = intval($_POST["end_date"]);
 $trial = intval($_POST["trial"]);
 $profilePictureSet = intval($_POST["profile_picture_set"]);
 $profilePictureURL = $_POST["profile_picture_url"];
-$c->query("UPDATE users SET phone='" . $phone . "', password='" . $password . "', confirmed=" . $confirmed . ", name='" . $name . "', username='" . $username . "', profile_picture_url='" . $profilePictureURL . "', city='" . $city . "', end_date=" . $endDate . ", is_trial=" . $trial . ", active_connections=" . $activeConnections . ", maximum_connections=" . $maxConnections . " WHERE id='" . $userId . "'");
-//$c->query("UPDATE users SET phone='+6281987654321', password='ABC123', confirmed=1, name='User Name', username='username6', profile_picture_url='http://www.google.com', city='Sidoarjo', end_date=1560358800000, is_trial=1, active_connections")
+//$c->query("UPDATE users SET phone='" . $phone . "', password='" . $password . "', confirmed=" . $confirmed . ", name='" . $name . "', username='" . $username . "', profile_picture_url='" . $profilePictureURL . "', city='" . $city . "', end_date=" . $endDate . ", is_trial=" . $trial . ", active_connections=" . $activeConnections . ", maximum_connections=" . $maxConnections . " WHERE id='" . $userId . "'");
+$c->query("UPDATE users SET name='User Name' WHERE id='ajxqNQ5zlZXUL7kjHEzxZ8qnURj2'");
 echo 0;
