@@ -159,7 +159,29 @@ function setUserClickListener() {
         var tr = $(this).parent().parent();
         var index = tr.parent().children().index(tr);
         var user = users[index];
-        $("#confirm-container").css("display", "flex");
+        $("#confirm-title").html("Hapus Pengguna");
+        $("#close-confirm").unbind().on("click", function() {
+            $("#confirm-container").fadeOut(300);
+        });
+        $("#confirm-msg").html("Apakah Anda yakin ingin menghapus pengguna ini?");
+        $("#confirm-ok").unbind().on("click", function() {
+            showProgress("Menghapus pengguna");
+            $.ajax({
+                type: 'GET',
+                url: PHP_PATH+'delete-user.php',
+                data: {'id': user["id"]},
+                dataType: 'text',
+                cache: false,
+                success: function(a) {
+                    hideProgress();
+                    getUsers();
+                }
+            });
+        });
+        $("#confirm-cancel").unbind().on("click", function() {
+            $("#confirm-container").fadeOut(300);
+        });
+        $("#confirm-container").css("display", "flex").hide().fadeIn(300);
     });
 }
 
