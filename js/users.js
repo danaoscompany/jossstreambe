@@ -193,6 +193,7 @@ function setUserClickListener() {
                 dataType: 'text',
                 cache: false,
                 success: function(a) {
+                    firebase.database().ref("users/"+user["id"]).remove();
                     hideProgress();
                     getUsers();
                 }
