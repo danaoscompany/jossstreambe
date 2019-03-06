@@ -159,6 +159,7 @@ function setUserClickListener() {
         var tr = $(this).parent().parent();
         var index = tr.parent().children().index(tr);
         var user = users[index];
+        alert(index);
         $("#confirm-title").html("Hapus Pengguna");
         $("#close-confirm").unbind().on("click", function() {
             $("#confirm-container").fadeOut(300);
