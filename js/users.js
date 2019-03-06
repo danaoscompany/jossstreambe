@@ -3,6 +3,7 @@ var currentProfilePicture = "";
 var users;
 
 $(document).ready(function() {
+    console.log("Hello world");
     getUsers();
 });
 
