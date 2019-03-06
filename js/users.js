@@ -113,6 +113,7 @@ function setUserClickListener() {
             }
             showProgress("Membuat pengguna");
             var fd = new FormData();
+            fd.append("id", user["id"]);
             fd.append("name", name);
             fd.append("username", username);
             fd.append("phone", phone);
