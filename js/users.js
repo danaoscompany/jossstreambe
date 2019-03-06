@@ -53,9 +53,21 @@ function setUserClickListener() {
         $("#edit-user-phone").val(user["phone"]);
         $("#edit-user-email").val(user["email"]);
         $("#edit-user-password").val(user["password"]);
-        $("#active-connections").css("display", "block").val(""+user["active_connections"]);
+        $("#active-connections").css("display", "block");
+        $("#active-connections").val(""+user["active_connections"]);
         $("#active-connections-div").css("display", "block");
         $("#maximum-connections").val(""+user["maximum_connections"]);
+        var endTime = new Date(parseInt(user["end_date"]));
+        var year = endTime.getFullYear();
+        var month = endTime.getMonth();
+        if (month < 10) {
+            month = "0"+month;
+        }
+        var day = endTime.getDate();
+        if (day < 10) {
+            day = "0"+day;
+        }
+        $("#end-time").val(year+"-"+month+"-"+day);
         var confirmed = false;
         if (user["confirmed"] == 1) {
             confirmed = true;
