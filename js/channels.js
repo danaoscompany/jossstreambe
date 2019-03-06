@@ -327,6 +327,9 @@ function addChannel() {
             }
         });
     });
+    $("#edit-channel-cancel").unbind().on("click", function() {
+        $("#edit-channel-container").css("display", "flex").fadeOut(300);
+    });
     $("#edit-channel-container").css("display", "flex").hide().fadeIn(300);
 }
 
