@@ -90,7 +90,7 @@ function setUserClickListener() {
             var email = $("#edit-user-email").val().trim();
             var password = $("#edit-user-password").val().trim();
             var city = $("#edit-user-city").val().trim();
-            var endDate = $("#end_date").val();
+            var endDate = $("#end-time").val();
             var isTrial = $("#is-trial option:selected").index();
             var confirmed = 0;
             if ($("#edit-user-confirmed").prop("checked")) {
@@ -218,7 +218,7 @@ function addUser() {
         var email = $("#edit-user-email").val().trim();
         var password = $("#edit-user-password").val().trim();
         var city = $("#edit-user-city").val().trim();
-        var endDate = $("#end_date").val();
+        var endDate = $("#end-time").val();
         var isTrial = $("#is-trial option:selected").index();
         var confirmed = 0;
         if ($("#edit-user-confirmed").prop("checked")) {
