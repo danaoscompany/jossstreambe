@@ -93,9 +93,9 @@ function setUserClickListener() {
             var city = $("#edit-user-city").val().trim();
             var endTimeString = $("#end-time").val();
             console.log("Time: "+endTimeString);
-            var year = endTimeString.split("-")[0];
-            var month = endTimeString.split("-")[1];
-            var day = endTimeString.split("-")[2];
+            var year = parseInt(endTimeString.split("-")[0]);
+            var month = parseInt(endTimeString.split("-")[1]);
+            var day = parseInt(endTimeString.split("-")[2]);
             var date = new Date();
             date.setFullYear(year);
             date.setMonth(month);
