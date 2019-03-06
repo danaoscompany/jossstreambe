@@ -90,7 +90,7 @@ function setUserClickListener() {
             var email = $("#edit-user-email").val().trim();
             var password = $("#edit-user-password").val().trim();
             var city = $("#edit-user-city").val().trim();
-            var endDate = $("#end-time").val();
+            var endDate = Date.parse($("#end-time").val());
             console.log("End date: "+endDate);
             var isTrial = $("#is-trial option:selected").index();
             var confirmed = 0;
