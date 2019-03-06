@@ -28,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/php/edit-user.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+              <caret line="16" column="417" lean-forward="true" selection-start-line="16" selection-start-column="417" selection-end-line="16" selection-end-column="417" />
             </state>
           </provider>
         </entry>
@@ -265,12 +265,12 @@
       <workItem from="1551587164711" duration="24000" />
       <workItem from="1551679949257" duration="1309000" />
       <workItem from="1551762105343" duration="196000" />
-      <workItem from="1551842349543" duration="1048000" />
+      <workItem from="1551842349543" duration="1164000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58048000" />
+    <option name="totallyTimeSpent" value="58164000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -825,7 +825,7 @@
     <entry file="file://$PROJECT_DIR$/php/edit-user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <caret line="16" column="417" lean-forward="true" selection-start-line="16" selection-start-column="417" selection-end-line="16" selection-end-column="417" />
         </state>
       </provider>
     </entry>
