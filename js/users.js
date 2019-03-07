@@ -60,7 +60,7 @@ function setUserClickListener() {
         $("#maximum-connections").val(""+user["maximum_connections"]);
         var endTime = new Date(parseInt(user["end_date"]));
         var year = endTime.getFullYear();
-        var month = endTime.getMonth();
+        var month = endTime.getMonth()+1;
         if (month < 10) {
             month = "0"+month;
         }
@@ -68,7 +68,7 @@ function setUserClickListener() {
         if (day < 10) {
             day = "0"+day;
         }
-        $("#end-time").val(year+"-"+(month+1)+"-"+day);
+        $("#end-time").val(year+"-"+month+"-"+day);
         var confirmed = false;
         if (user["confirmed"] == 1) {
             confirmed = true;
