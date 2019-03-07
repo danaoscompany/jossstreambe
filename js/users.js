@@ -226,8 +226,15 @@ function addUser() {
         var email = $("#edit-user-email").val().trim();
         var password = $("#edit-user-password").val().trim();
         var city = $("#edit-user-city").val().trim();
-        var endDate = $("#end-time").val();
-        console.log("End date: "+endDate);
+        var endDateString = $("#end-time").val();
+        var year = parseInt(endDateString.split("-")[0]);
+        var month = parseInt(endDateString.split("-")[1]);
+        var day = parseInt(endDateString.split("-")[2]);
+        var endDate = new Date();
+        endDate.setFullYear(year);
+        endDate.setMonth(month);
+        endDate.setDate(day);
+        var endDateInt = endDate.getTime();
         var isTrial = $("#is-trial option:selected").index();
         var confirmed = 0;
         if ($("#edit-user-confirmed").prop("checked")) {
@@ -263,7 +270,7 @@ function addUser() {
         fd.append("confirmed", confirmed);
         fd.append("city", city);
         fd.append("trial", isTrial);
-        fd.append("end_date", endDate);
+        fd.append("end_date", endDateInt);
         if (currentProfilePicture != "img/profile-picture.jpg") {
             fd.append("profile_picture_set", 1);
         } else {
