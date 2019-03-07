@@ -68,7 +68,7 @@ function setUserClickListener() {
         if (day < 10) {
             day = "0"+day;
         }
-        $("#end-time").val(year+"-"+month+"-"+day);
+        $("#end-time").val(year+"-"+(month+1)+"-"+day);
         var confirmed = false;
         if (user["confirmed"] == 1) {
             confirmed = true;
