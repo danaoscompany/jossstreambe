@@ -284,11 +284,26 @@ function addUser() {
             processData: false,
             contentType: false,
             cache: false,
-            success: function(a) {
+            success: function(response) {
                 hideProgress();
-                var response = a;
-                console.log("Response: "+response);
                 if (response == 0) {
+                    $.ajax({
+                        type: 'GET',
+                        url: PHP_PATH+'get-user-by-email.php',
+                        data: {'email': email},
+                        dataType: 'text',
+                        cache: false,
+                        success: function(a) {
+                            if (a != -1) {
+                                var userInfo = JSON.parse(a);
+                                firebase.database().ref("users/" + userInfo["id"]).set({
+                                    email: email,
+                                    username: username,
+                                    password: password
+                                });
+                            }
+                        }
+                    });
                     $("#edit-user-container").fadeOut(300);
                     getUsers();
                 } else if (response == -1) {
