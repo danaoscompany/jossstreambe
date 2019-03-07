@@ -13,6 +13,9 @@ if ($results && $results->num_rows > 0) {
         echo -2;
         return;
     }
+    session_id("jossstream");
+    session_start();
+    $_SESSION["jossstream_user_id"] = $row["id"];
     echo 0;
 } else {
     echo -1;
