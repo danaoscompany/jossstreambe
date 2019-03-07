@@ -228,7 +228,7 @@ function addUser() {
         var city = $("#edit-user-city").val().trim();
         var endDateString = $("#end-time").val();
         var year = parseInt(endDateString.split("-")[0]);
-        var month = parseInt(endDateString.split("-")[1])-1;
+        var month = parseInt(endDateString.split("-")[1]);
         var day = parseInt(endDateString.split("-")[2]);
         var endDate = new Date();
         endDate.setFullYear(year);
