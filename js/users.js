@@ -3,7 +3,6 @@ var currentProfilePicture = "";
 var users;
 
 $(document).ready(function() {
-    console.log("Hello world");
     getUsers();
 });
 
@@ -59,12 +58,14 @@ function setUserClickListener() {
         $("#active-connections-div").css("display", "block");
         $("#maximum-connections").val(""+user["maximum_connections"]);
         var endTime = new Date(parseInt(user["end_date"]));
+        console.log("End time: "+endTime);
         var year = endTime.getFullYear();
         var month = endTime.getMonth()+1;
         if (month < 10) {
             month = "0"+month;
         }
         var day = endTime.getDate();
+        console.log("Month: "+month);
         if (day < 10) {
             day = "0"+day;
         }

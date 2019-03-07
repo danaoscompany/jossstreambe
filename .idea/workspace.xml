@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fad0f770-8cad-4345-b3dd-fb30ca8c409c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/js/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/users.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1445">
-              <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="56" />
+            <state relative-caret-position="102">
+              <caret line="6" column="84" lean-forward="true" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -35,6 +36,7 @@
                 <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -70,7 +72,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admins.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
+            <state relative-caret-position="203">
               <caret line="70" column="6" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -119,7 +121,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/channels.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
+            <state relative-caret-position="51">
               <caret line="67" column="56" selection-start-line="67" selection-start-column="56" selection-end-line="67" selection-end-column="56" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -171,8 +173,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/channels.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="376" column="1" lean-forward="true" selection-start-line="376" selection-start-column="1" selection-end-line="376" selection-end-column="1" />
+            <state relative-caret-position="459">
+              <caret line="120" column="1" lean-forward="true" selection-start-line="120" selection-start-column="1" selection-end-line="120" selection-end-column="1" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
@@ -184,8 +186,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="62" column="41" lean-forward="true" selection-start-line="62" selection-start-column="41" selection-end-line="62" selection-end-column="41" />
+            <state relative-caret-position="221">
+              <caret line="67" column="37" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
               </folding>
@@ -296,11 +298,11 @@
         <option value="$PROJECT_DIR$/common.html" />
         <option value="$PROJECT_DIR$/purchases.html" />
         <option value="$PROJECT_DIR$/php/login.php" />
-        <option value="$PROJECT_DIR$/users.html" />
         <option value="$PROJECT_DIR$/admins.html" />
         <option value="$PROJECT_DIR$/channels.html" />
         <option value="$PROJECT_DIR$/js/channels.js" />
         <option value="$PROJECT_DIR$/js/global.js" />
+        <option value="$PROJECT_DIR$/users.html" />
         <option value="$PROJECT_DIR$/js/users.js" />
       </list>
     </option>
@@ -436,12 +438,12 @@
       <workItem from="1551923484848" duration="1336000" />
       <workItem from="1551946945493" duration="1674000" />
       <workItem from="1551948739529" duration="1779000" />
-      <workItem from="1551950550510" duration="405000" />
+      <workItem from="1551950550510" duration="487000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67572000" />
+    <option name="totallyTimeSpent" value="67654000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -819,10 +821,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/php/upload-image.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="74" selection-start-line="2" selection-start-column="74" selection-end-line="2" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/users.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="56" />
+        <state relative-caret-position="102">
+          <caret line="6" column="84" lean-forward="true" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -841,6 +850,7 @@
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -874,7 +884,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admins.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
+        <state relative-caret-position="203">
           <caret line="70" column="6" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -921,7 +931,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/channels.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
+        <state relative-caret-position="51">
           <caret line="67" column="56" selection-start-line="67" selection-start-column="56" selection-end-line="67" selection-end-column="56" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -960,13 +970,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/upload-image.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="74" selection-start-line="2" selection-start-column="74" selection-end-line="2" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/global.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -976,8 +979,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/channels.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="376" column="1" lean-forward="true" selection-start-line="376" selection-start-column="1" selection-end-line="376" selection-end-column="1" />
+        <state relative-caret-position="459">
+          <caret line="120" column="1" lean-forward="true" selection-start-line="120" selection-start-column="1" selection-end-line="120" selection-end-column="1" />
           <folding>
             <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
@@ -987,8 +990,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="62" column="41" lean-forward="true" selection-start-line="62" selection-start-column="41" selection-end-line="62" selection-end-column="41" />
+        <state relative-caret-position="221">
+          <caret line="67" column="37" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
           <folding>
             <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
           </folding>
