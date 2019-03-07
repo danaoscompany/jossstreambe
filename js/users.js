@@ -231,6 +231,7 @@ function addUser() {
         var month = parseInt(endDateString.split("-")[1])-1;
         var day = parseInt(endDateString.split("-")[2]);
         var endDate = new Date();
+        console.log("Month: "+month);
         endDate.setFullYear(year);
         endDate.setMonth(month);
         endDate.setDate(day);
