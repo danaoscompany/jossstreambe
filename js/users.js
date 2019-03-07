@@ -323,7 +323,7 @@ function addUser() {
                 });
             }
         });
-        firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function(error) {
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
         });
     });
 }
