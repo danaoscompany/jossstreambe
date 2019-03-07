@@ -94,7 +94,7 @@ function setUserClickListener() {
             var endTimeString = $("#end-time").val();
             console.log("Time: "+endTimeString);
             var year = parseInt(endTimeString.split("-")[0]);
-            var month = parseInt(endTimeString.split("-")[1]);
+            var month = parseInt(endTimeString.split("-")[1])-1;
             var day = parseInt(endTimeString.split("-")[2]);
             var date = new Date();
             date.setFullYear(year);
@@ -234,16 +234,12 @@ function addUser() {
         }
         var activeConnections = 0;
         var maximumConnections = currentMaximumConnections;
-        if (name == "") {
-            show("Mohon masukkan nama");
-            return;
-        }
         if (username == "") {
             show("Mohon masukkan nama pengguna");
             return;
         }
-        if (phone == "") {
-            show("Mohon masukkan nomor HP");
+        if (email == "") {
+            show("Mohon masukkan email");
             return;
         }
         if (password == "") {
