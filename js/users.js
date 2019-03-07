@@ -94,7 +94,7 @@ function setUserClickListener() {
             var endTimeString = $("#end-time").val();
             console.log("Time: "+endTimeString);
             var year = parseInt(endTimeString.split("-")[0]);
-            var month = parseInt(endTimeString.split("-")[1])-1;
+            var month = parseInt(endTimeString.split("-")[1]);
             var day = parseInt(endTimeString.split("-")[2]);
             var date = new Date();
             date.setFullYear(year);

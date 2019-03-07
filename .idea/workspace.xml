@@ -182,8 +182,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="230" column="1" selection-start-line="230" selection-start-column="1" selection-end-line="230" selection-end-column="1" />
+            <state relative-caret-position="203">
+              <caret line="96" column="61" selection-start-line="96" selection-start-column="61" selection-end-line="96" selection-end-column="61" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
               </folding>
@@ -204,7 +204,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>batal</find>
       <find>edit-channel-cancel</find>
       <find>edit-channel-ok</find>
       <find>ubah</find>
@@ -234,6 +233,7 @@
       <find>imageSelected</find>
       <find>ismobile</find>
       <find>isMobile</find>
+      <find>-1</find>
     </findStrings>
     <replaceStrings>
       <replace>showProgress</replace>
@@ -294,12 +294,12 @@
         <option value="$PROJECT_DIR$/common.html" />
         <option value="$PROJECT_DIR$/purchases.html" />
         <option value="$PROJECT_DIR$/php/login.php" />
-        <option value="$PROJECT_DIR$/js/users.js" />
         <option value="$PROJECT_DIR$/users.html" />
         <option value="$PROJECT_DIR$/admins.html" />
         <option value="$PROJECT_DIR$/channels.html" />
         <option value="$PROJECT_DIR$/js/channels.js" />
         <option value="$PROJECT_DIR$/js/global.js" />
+        <option value="$PROJECT_DIR$/js/users.js" />
       </list>
     </option>
   </component>
@@ -434,12 +434,12 @@
       <workItem from="1551923484848" duration="1336000" />
       <workItem from="1551946945493" duration="1674000" />
       <workItem from="1551948739529" duration="1779000" />
-      <workItem from="1551950550510" duration="117000" />
+      <workItem from="1551950550510" duration="139000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67284000" />
+    <option name="totallyTimeSpent" value="67306000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -985,8 +985,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="230" column="1" selection-start-line="230" selection-start-column="1" selection-end-line="230" selection-end-column="1" />
+        <state relative-caret-position="203">
+          <caret line="96" column="61" selection-start-line="96" selection-start-column="61" selection-end-line="96" selection-end-column="61" />
           <folding>
             <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
           </folding>
