@@ -27,7 +27,7 @@ function getUsers() {
                     "<tr>"+
                         "<td><div style='background-color: #2f2e4d; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: white;'>"+i+"</div></td>"+
                         "<td>"+user["name"]+"</td>"+
-                        "<td>"+user["phone"]+"</td>"+
+                        "<td>"+user["email"]+"</td>"+
                         "<td>"+user["password"]+"</td>"+
                         "<td>"+user["username"]+"</td>"+
                         "<td>"+user["active_connections"]+"</td>"+
@@ -109,16 +109,12 @@ function setUserClickListener() {
             }
             var activeConnections = $("#active-connections").val();
             var maximumConnections = currentMaximumConnections;
-            if (name == "") {
-                show("Mohon masukkan nama");
-                return;
-            }
             if (username == "") {
                 show("Mohon masukkan nama pengguna");
                 return;
             }
-            if (phone == "") {
-                show("Mohon masukkan nomor HP");
+            if (email == "") {
+                show("Mohon masukkan email");
                 return;
             }
             if (password == "") {
@@ -129,7 +125,7 @@ function setUserClickListener() {
                 show("Mohon masukkan jumlah maksimal koneksi aktif");
                 return;
             }
-            showProgress("Membuat pengguna");
+            showProgress("Mengubah pengguna");
             var fd = new FormData();
             fd.append("id", user["id"]);
             fd.append("name", name);
