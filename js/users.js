@@ -280,6 +280,7 @@ function addUser() {
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
             firebase.auth().onAuthStateChanged(function(userInfo) {
                 var userId = userInfo.uid;
+                console.log("Generated user ID: "+userId)
                 if (userId) {
                     fd.append("user_id", userId);
                     $.ajax({
