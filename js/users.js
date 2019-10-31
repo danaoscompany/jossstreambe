@@ -277,53 +277,53 @@ function addUser() {
         } else {
             fd.append("profile_picture_set", 0);
         }
-        firebase.auth().onAuthStateChanged(function(userInfo) {
-            var userId = userInfo.uid;
-            if (userId) {
-                fd.append("user_id", userId);
-                $.ajax({
-                    type: 'POST',
-                    url: PHP_PATH+'create-user.php',
-                    data: fd,
-                    processData: false,
-                    contentType: false,
-                    cache: false,
-                    success: function(response) {
-                        hideProgress();
-                        if (response == 0) {
-                            $.ajax({
-                                type: 'GET',
-                                url: PHP_PATH+'get-user-by-email.php',
-                                data: {'email': email},
-                                dataType: 'text',
-                                cache: false,
-                                success: function(a) {
-                                    if (a != -1) {
-                                        var userInfo = JSON.parse(a);
-                                        firebase.database().ref("users/" + userInfo["id"]).set({
-                                            email: email,
-                                            username: username,
-                                            password: password
-                                        });
-                                    }
-                                }
-                            });
-                            $("#edit-user-container").fadeOut(300);
-                            getUsers();
-                        } else if (response == -1) {
-                            show("Nama pengguna sudah digunakan");
-                        } else if (response == -2) {
-                            show("Nomor HP sudah digunakan");
-                        } else if (response == -3) {
-                            show("Email sudah digunakan");
-                        } else {
-                            show("Kesalahan: "+response);
-                        }
-                    }
-                });
-            }
-        });
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+            firebase.auth().onAuthStateChanged(function(userInfo) {
+                var userId = userInfo.uid;
+                if (userId) {
+                    fd.append("user_id", userId);
+                    $.ajax({
+                        type: 'POST',
+                        url: PHP_PATH+'create-user.php',
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function(response) {
+                            hideProgress();
+                            if (response == 0) {
+                                $.ajax({
+                                    type: 'GET',
+                                    url: PHP_PATH+'get-user-by-email.php',
+                                    data: {'email': email},
+                                    dataType: 'text',
+                                    cache: false,
+                                    success: function(a) {
+                                        if (a != -1) {
+                                            var userInfo = JSON.parse(a);
+                                            firebase.database().ref("users/" + userInfo["id"]).set({
+                                                email: email,
+                                                username: username,
+                                                password: password
+                                            });
+                                        }
+                                    }
+                                });
+                                $("#edit-user-container").fadeOut(300);
+                                getUsers();
+                            } else if (response == -1) {
+                                show("Nama pengguna sudah digunakan");
+                            } else if (response == -2) {
+                                show("Nomor HP sudah digunakan");
+                            } else if (response == -3) {
+                                show("Email sudah digunakan");
+                            } else {
+                                show("Kesalahan: "+response);
+                            }
+                        }
+                    });
+                }
+            });
         });
     });
 }
