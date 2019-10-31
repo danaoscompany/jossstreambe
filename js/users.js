@@ -2,7 +2,7 @@ var currentMaximumConnections = 1;
 var currentProfilePicture = "";
 var users;
 
-$(document).ready(function() {
+$(document).ready(function () {
     getUsers();
 });
 
@@ -11,28 +11,28 @@ function getUsers() {
     showProgress("Memuat pengguna");
     $.ajax({
         type: 'GET',
-        url: PHP_PATH+'get-users.php',
+        url: PHP_PATH + 'get-users.php',
         dataType: 'text',
         cache: false,
-        success: function(a) {
+        success: function (a) {
             users = JSON.parse(a);
-            for (var i=0; i<users.length; i++) {
+            for (var i = 0; i < users.length; i++) {
                 var user = users[i];
                 var trial = "Tidak";
                 if (parseInt(user["is_trial"]) == 1) {
                     trial = "Ya";
                 }
-                $("#users").append(""+
-                    "<tr>"+
-                        "<td><div style='background-color: #2f2e4d; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: white;'>"+i+"</div></td>"+
-                        "<td>"+user["name"]+"</td>"+
-                        "<td>"+user["email"]+"</td>"+
-                        "<td>"+user["password"]+"</td>"+
-                        "<td>"+user["username"]+"</td>"+
-                        "<td>"+user["active_connections"]+"</td>"+
-                        "<td>"+trial+"</td>"+
-                        "<td><a class='edit-user link'>Ubah</a></td>"+
-                        "<td><a class='delete-user link'>Hapus</a></td>"+
+                $("#users").append("" +
+                    "<tr>" +
+                    "<td><div style='background-color: #2f2e4d; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: white;'>" + i + "</div></td>" +
+                    "<td>" + user["name"] + "</td>" +
+                    "<td>" + user["email"] + "</td>" +
+                    "<td>" + user["password"] + "</td>" +
+                    "<td>" + user["username"] + "</td>" +
+                    "<td>" + user["active_connections"] + "</td>" +
+                    "<td>" + trial + "</td>" +
+                    "<td><a class='edit-user link'>Ubah</a></td>" +
+                    "<td><a class='delete-user link'>Hapus</a></td>" +
                     "</tr>"
                 );
             }
@@ -43,7 +43,7 @@ function getUsers() {
 }
 
 function setUserClickListener() {
-    $(".edit-user").on("click", function() {
+    $(".edit-user").on("click", function () {
         var tr = $(this).parent().parent();
         var index = tr.parent().children().index(tr);
         var user = users[index];
@@ -54,22 +54,22 @@ function setUserClickListener() {
         $("#edit-user-email").val(user["email"]);
         $("#edit-user-password").val(user["password"]);
         $("#active-connections").css("display", "block");
-        $("#active-connections").val(""+user["active_connections"]);
+        $("#active-connections").val("" + user["active_connections"]);
         $("#active-connections-div").css("display", "block");
-        $("#maximum-connections").val(""+user["maximum_connections"]);
+        $("#maximum-connections").val("" + user["maximum_connections"]);
         var endTime = new Date(parseInt(user["end_date"]));
-        console.log("End time: "+endTime);
+        console.log("End time: " + endTime);
         var year = endTime.getFullYear();
-        var month = endTime.getMonth()+1;
+        var month = endTime.getMonth() + 1;
         if (month < 10) {
-            month = "0"+month;
+            month = "0" + month;
         }
         var day = endTime.getDate();
-        console.log("Month: "+month);
+        console.log("Month: " + month);
         if (day < 10) {
-            day = "0"+day;
+            day = "0" + day;
         }
-        $("#end-time").val(year+"-"+month+"-"+day);
+        $("#end-time").val(year + "-" + month + "-" + day);
         var confirmed = false;
         if (user["confirmed"] == 1) {
             confirmed = true;
@@ -85,7 +85,7 @@ function setUserClickListener() {
             $("#is-trial option")[1].selected = true;
         }
         $("#edit-user-container").css("display", "flex").hide().fadeIn(300);
-        $("#edit-user-ok").html("Ubah").unbind().on("click", function() {
+        $("#edit-user-ok").html("Ubah").unbind().on("click", function () {
             var name = $("#edit-user-name").val().trim();
             var username = $("#edit-user-username").val().trim();
             var phone = $("#edit-user-phone").val().trim();
@@ -93,7 +93,7 @@ function setUserClickListener() {
             var password = $("#edit-user-password").val().trim();
             var city = $("#edit-user-city").val().trim();
             var endTimeString = $("#end-time").val();
-            console.log("Time: "+endTimeString);
+            console.log("Time: " + endTimeString);
             var year = parseInt(endTimeString.split("-")[0]);
             var month = parseInt(endTimeString.split("-")[1]);
             var day = parseInt(endTimeString.split("-")[2]);
@@ -102,7 +102,7 @@ function setUserClickListener() {
             date.setMonth(month);
             date.setDate(day);
             var endDate = date.getTime();
-            console.log("End date: "+endDate);
+            console.log("End date: " + endDate);
             var isTrial = $("#is-trial option:selected").index();
             var confirmed = 0;
             if ($("#edit-user-confirmed").prop("checked")) {
@@ -146,15 +146,15 @@ function setUserClickListener() {
             }
             $.ajax({
                 type: 'POST',
-                url: PHP_PATH+'edit-user.php',
+                url: PHP_PATH + 'edit-user.php',
                 data: fd,
                 processData: false,
                 contentType: false,
                 cache: false,
-                success: function(a) {
+                success: function (a) {
                     hideProgress();
                     var response = a;
-                    console.log("Response: "+response);
+                    console.log("Response: " + response);
                     if (response == 0) {
                         $("#edit-user-container").fadeOut(300);
                         getUsers();
@@ -165,38 +165,38 @@ function setUserClickListener() {
                     } else if (response == -3) {
                         show("Email sudah digunakan");
                     } else {
-                        show("Kesalahan: "+response);
+                        show("Kesalahan: " + response);
                     }
                 }
             });
         });
     });
-    $(".delete-user").on("click", function() {
+    $(".delete-user").on("click", function () {
         var tr = $(this).parent().parent();
         var index = tr.parent().children().index(tr);
         var user = users[index];
         $("#confirm-title").html("Hapus Pengguna");
-        $("#close-confirm").unbind().on("click", function() {
+        $("#close-confirm").unbind().on("click", function () {
             $("#confirm-container").fadeOut(300);
         });
         $("#confirm-msg").html("Apakah Anda yakin ingin menghapus pengguna ini?");
-        $("#confirm-ok").unbind().on("click", function() {
+        $("#confirm-ok").unbind().on("click", function () {
             $("#confirm-container").hide();
             showProgress("Menghapus pengguna");
             $.ajax({
                 type: 'GET',
-                url: PHP_PATH+'delete-user.php',
+                url: PHP_PATH + 'delete-user.php',
                 data: {'id': user["id"]},
                 dataType: 'text',
                 cache: false,
-                success: function(a) {
-                    firebase.database().ref("users/"+user["id"]).remove();
+                success: function (a) {
+                    firebase.database().ref("users/" + user["id"]).remove();
                     hideProgress();
                     getUsers();
                 }
             });
         });
-        $("#confirm-cancel").unbind().on("click", function() {
+        $("#confirm-cancel").unbind().on("click", function () {
             $("#confirm-container").fadeOut(300);
         });
         $("#confirm-container").css("display", "flex").hide().fadeIn(300);
@@ -220,7 +220,7 @@ function addUser() {
     $("#edit-user-profile-picture").attr("src", currentProfilePicture);
     $("#is-trial option")[0].selected = true;
     $("#edit-user-container").css("display", "flex").hide().fadeIn(300);
-    $("#edit-user-ok").html("Tambah").unbind().on("click", function() {
+    $("#edit-user-ok").html("Tambah").unbind().on("click", function () {
         var name = $("#edit-user-name").val().trim();
         var username = $("#edit-user-username").val().trim();
         var phone = $("#edit-user-phone").val().trim();
@@ -277,55 +277,50 @@ function addUser() {
         } else {
             fd.append("profile_picture_set", 0);
         }
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-            firebase.auth().onAuthStateChanged(function(userInfo) {
-                var userId = userInfo.uid;
-                console.log("Generated user ID: "+userId);
-                if (userId) {
-                    fd.append("user_id", userId);
-                    $.ajax({
-                        type: 'POST',
-                        url: PHP_PATH+'create-user.php',
-                        data: fd,
-                        processData: false,
-                        contentType: false,
-                        cache: false,
-                        success: function(response) {
-                            hideProgress();
-                            if (response == 0) {
-                                $.ajax({
-                                    type: 'GET',
-                                    url: PHP_PATH+'get-user-by-email.php',
-                                    data: {'email': email},
-                                    dataType: 'text',
-                                    cache: false,
-                                    success: function(a) {
-                                        if (a != -1) {
-                                            var userInfo = JSON.parse(a);
-                                            firebase.database().ref("users/" + userInfo["id"]).set({
-                                                email: email,
-                                                username: username,
-                                                password: password
-                                            });
-                                        }
-                                    }
-                                });
-                                $("#edit-user-container").fadeOut(300);
-                                getUsers();
-                            } else if (response == -1) {
-                                show("Nama pengguna sudah digunakan");
-                            } else if (response == -2) {
-                                show("Nomor HP sudah digunakan");
-                            } else if (response == -3) {
-                                show("Email sudah digunakan");
-                            } else {
-                                show("Kesalahan: "+response);
+        var userId = uuidv4();
+        if (userId) {
+            fd.append("user_id", userId);
+            $.ajax({
+                type: 'POST',
+                url: PHP_PATH + 'create-user.php',
+                data: fd,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function (response) {
+                    hideProgress();
+                    if (response == 0) {
+                        $.ajax({
+                            type: 'GET',
+                            url: PHP_PATH + 'get-user-by-email.php',
+                            data: {'email': email},
+                            dataType: 'text',
+                            cache: false,
+                            success: function (a) {
+                                if (a != -1) {
+                                    var userInfo = JSON.parse(a);
+                                    firebase.database().ref("users/" + userInfo["id"]).set({
+                                        email: email,
+                                        username: username,
+                                        password: password
+                                    });
+                                }
                             }
-                        }
-                    });
+                        });
+                        $("#edit-user-container").fadeOut(300);
+                        getUsers();
+                    } else if (response == -1) {
+                        show("Nama pengguna sudah digunakan");
+                    } else if (response == -2) {
+                        show("Nomor HP sudah digunakan");
+                    } else if (response == -3) {
+                        show("Email sudah digunakan");
+                    } else {
+                        show("Kesalahan: " + response);
+                    }
                 }
             });
-        });
+        }
     });
 }
 
@@ -351,9 +346,9 @@ function decreaseMaxConn() {
 }
 
 function selectProfilePicture() {
-    $("#edit-user-select-profile-picture").on("change", function() {
+    $("#edit-user-select-profile-picture").on("change", function () {
         var fr = new FileReader();
-        fr.onload = function() {
+        fr.onload = function () {
             $("#edit-user-profile-picture").attr("src", fr.result);
         };
         fr.readAsDataURL($(this).prop("files")[0]);
