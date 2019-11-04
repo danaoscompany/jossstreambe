@@ -105,7 +105,7 @@ function setNotificationClickListener() {
 function addNotification() {
     $("#title").val("");
     $("#content").val("");
-    $("#edit-notification-title").html("Tambah Notifikasi");=
+    $("#edit-notification-title").html("Tambah Notifikasi");
     $("#edit-notification-container").css("display", "flex").hide().fadeIn(300);
     $("#edit-notification-ok").html("Tambah").unbind().on("click", function() {
         var title = $("#title").val().trim();
