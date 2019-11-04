@@ -135,6 +135,7 @@ function setUserClickListener() {
             fd.append("username", username);
             fd.append("phone", phone);
             fd.append("password", password);
+            fd.append("vip_password", vipPassword);
             fd.append("active_connections", activeConnections);
             fd.append("maximum_connections", maximumConnections);
             fd.append("confirmed", confirmed);
