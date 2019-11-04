@@ -20,9 +20,9 @@
         };
         firebase.initializeApp(config);
     </script>
-    <script src="js/users.js"></script>
+    <script src="js/notifications.js"></script>
     <link href="css/global.css" rel="stylesheet">
-    <link href="css/users.css" rel="stylesheet">
+    <link href="css/notifications.css" rel="stylesheet">
 </head>
 <body>
 <div style="width: 100%; height: 100%; display: flex; flex-flow: row nowrap; position: fixed; left: 0; top: 0;">
@@ -71,17 +71,14 @@
             <thead>
             <tr>
                 <th>No.</th>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>Kata Sandi</th>
-                <th>Nama Pengguna</th>
-                <th>Koneksi</th>
-                <th>Trial</th>
+                <th>Judul</th>
+                <th>Konten</th>
+                <th>Tanggal</th>
                 <th>Ubah</th>
                 <th>Hapus</th>
             </tr>
             </thead>
-            <tbody id="users">
+            <tbody id="notifications">
             </tbody>
         </table>
         <div>&nbsp;</div>

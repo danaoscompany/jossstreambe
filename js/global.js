@@ -90,6 +90,10 @@ function openChannels() {
     window.location.href = "channels.html";
 }
 
+function openNotifications() {
+    window.location.href = "notifications.html";
+}
+
 function generateRandomID(length) {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
