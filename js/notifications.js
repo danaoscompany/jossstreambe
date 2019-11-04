@@ -58,7 +58,7 @@ function closeEditNotificationDialog() {
 }
 
 function setNotificationClickListener() {
-    $("#edit-notification").unbind().on("click", function() {
+    $(".edit-notification").unbind().on("click", function() {
         alert("Clicked");
         var tr = $(this).parent().parent();
         var index = tr.parent().children().index(tr);
