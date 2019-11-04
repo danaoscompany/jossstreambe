@@ -25,7 +25,7 @@ function getNotifications() {
                 if (parseInt(notification["is_trial"]) == 1) {
                     trial = "Ya";
                 }
-                var date = Date(parseInt(notification["date"]));
+                var date = new Date(parseInt(notification["date"]));
                 var dateText = "";
                 dateText += date.getDate();
                 dateText += " ";
