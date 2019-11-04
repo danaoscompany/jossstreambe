@@ -5,20 +5,21 @@
     <script src="js/global.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyDmnhNevOodxFbcMbyJlH5oZnw9o0gverM",
-            authDomain: "joss-stream.firebaseapp.com",
-            databaseURL: "https://joss-stream.firebaseio.com",
-            projectId: "joss-stream",
-            storageBucket: "joss-stream.appspot.com",
-            messagingSenderId: "493889590994"
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBZmRK_qHMbDR04hIXDSJLU93BwNkcCkYA",
+            authDomain: "joss-player.firebaseapp.com",
+            databaseURL: "https://joss-player.firebaseio.com",
+            projectId: "joss-player",
+            storageBucket: "joss-player.appspot.com",
+            messagingSenderId: "288867625833",
+            appId: "1:288867625833:web:1f30175e862496f6336bf8"
         };
-        firebase.initializeApp(config);
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
     </script>
     <script src="js/notifications.js"></script>
     <link href="css/global.css" rel="stylesheet">
