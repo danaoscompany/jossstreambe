@@ -67,6 +67,7 @@ function setNotificationClickListener() {
         alert("Title: "+notification["title"]);
         $("#title").val(notification["title"]);
         $("#content").val(notification["content"]);
+        $("#edit-notification-title").html("Ubah Notifikasi");
         $("#edit-notification-ok").html("Ubah").unbind().on("click", function() {
             var title = $("#title").val().trim();
             var content = $("#content").val().trim();
@@ -104,9 +105,9 @@ function setNotificationClickListener() {
 function addNotification() {
     $("#title").val("");
     $("#content").val("");
-    $("#edit-notification-title").html("Tambah");
+    $("#edit-notification-title").html("Tambah Notifikasi");=
     $("#edit-notification-container").css("display", "flex").hide().fadeIn(300);
-    $("#edit-notification-ok").unbind().on("click", function() {
+    $("#edit-notification-ok").html("Tambah").unbind().on("click", function() {
         var title = $("#title").val().trim();
         var content = $("#content").val().trim();
         if (title == "") {
