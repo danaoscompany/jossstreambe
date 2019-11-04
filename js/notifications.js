@@ -34,7 +34,7 @@ function getNotifications() {
                 dateText += date.getFullYear();
                 var content = notification["content"];
                 if (content.length > 30) {
-                    content = content.substring(0, 29);
+                    content = content.substring(0, 29)+"...";
                 }
                 $("#notifications").append("" +
                     "<tr>" +
@@ -53,5 +53,82 @@ function getNotifications() {
     });
 }
 
+function closeEditNotificationDialog() {
+    $("#edit-notification-container").hide();
+}
+
 function setNotificationClickListener() {
+    $("#edit-notification").unbind().on("click", function() {
+        var tr = $(this).parent().parent();
+        var index = tr.parent().children().index(tr);
+        var notification = notifications[index];
+        $("#title").val(notification["title"]);
+        $("#content").val(notification["content"]);
+        $("#edit-notification-ok").html("Ubah").unbind().on("click", function() {
+            var title = $("#title").val().trim();
+            var content = $("#content").val().trim();
+            if (title == "") {
+                show("Mohon masukkan judul notifikasi");
+                return;
+            }
+            if (content == "") {
+                show("Mohon masukkan isi notifikasi");
+                return;
+            }
+            showProgress("Mengubah notifikasi");
+            var fd = new FormData();
+            fd.append("id", notification["id"]);
+            fd.append("title", title);
+            fd.append("content", content);
+            $.ajax({
+                type: 'POST',
+                url: PHP_PATH + 'edit-notification.php',
+                data: fd,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function (a) {
+                    hideProgress();
+                    getNotifications();
+                }
+            });
+        });
+        $("#edit-notification-container").css("display", "flex").hide().fadeIn(300);
+    });
+}
+
+function addNotification() {
+    $("#title").val("");
+    $("#content").val("");
+    $("#edit-notification-title").html("Tambah");
+    $("#edit-notification-container").css("display", "flex").hide().fadeIn(300);
+    $("#edit-notification-ok").unbind().on("click", function() {
+        var title = $("#title").val().trim();
+        var content = $("#content").val().trim();
+        if (title == "") {
+            show("Mohon masukkan judul notifikasi");
+            return;
+        }
+        if (content == "") {
+            show("Mohon masukkan isi notifikasi");
+            return;
+        }
+        showProgress("Menambah notifikasi");
+        var fd = new FormData();
+        fd.append("title", title);
+        fd.append("content", content);
+        fd.append("date", new Date().getTime());
+        $.ajax({
+            type: 'POST',
+            url: PHP_PATH + 'add-notification.php',
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function (a) {
+                hideProgress();
+                getNotifications();
+            }
+        });
+    });
 }
