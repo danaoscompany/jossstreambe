@@ -91,6 +91,7 @@ function setNotificationClickListener() {
                 contentType: false,
                 cache: false,
                 success: function (a) {
+                    $("#edit-notification-container").fadeOut(300);
                     hideProgress();
                     getNotifications();
                 }
@@ -129,6 +130,7 @@ function addNotification() {
             contentType: false,
             cache: false,
             success: function (a) {
+                $("#edit-notification-container").fadeOut(300);
                 hideProgress();
                 getNotifications();
             }
