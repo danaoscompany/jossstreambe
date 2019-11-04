@@ -33,7 +33,7 @@ function getNotifications() {
                 dateText += " ";
                 dateText += date.getFullYear();
                 var content = notification["content"];
-                if (content.getLength() > 30) {
+                if (content.length > 30) {
                     content = content.substring(0, 29);
                 }
                 $("#notifications").append("" +
