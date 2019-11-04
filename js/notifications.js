@@ -7,6 +7,31 @@ var monthNames = [
 
 $(document).ready(function () {
     getNotifications();
+    const messaging = firebase.messaging();
+    messaging.usePublicVapidKey("BMATEC9vSMYogedkzELmghC6cFNSLT3mY7o62m5UllHdB0rkd1S-wpoBNKcpZv20edaVgavEEz7iYLaJyOVSUxI");
+    Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+            messaging.getToken().then((currentToken) => {
+                if (currentToken) {
+                    // TODO Remove this line
+                    console.log("Current token: "+currentToken);
+                    var fd = new FormData();
+                    fd.append("token", currentToken);
+                    $.ajax({
+                        type: 'POST',
+                        url: PHP_PATH+'update-admin-fcm-token.php',
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function(a) {
+                        }
+                    });
+                }
+            }).catch((err) => {
+            });
+        }
+    });
 });
 
 function getNotifications() {
