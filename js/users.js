@@ -61,7 +61,7 @@ function setUserClickListener() {
         var endTime = new Date(parseInt(user["end_date"]));
         console.log("End time: " + endTime);
         var year = endTime.getFullYear();
-        var month = endTime.getMonth() + 1;
+        var month = endTime.getMonth();
         if (month < 10) {
             month = "0" + month;
         }
