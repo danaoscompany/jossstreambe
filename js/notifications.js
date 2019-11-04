@@ -59,12 +59,9 @@ function closeEditNotificationDialog() {
 
 function setNotificationClickListener() {
     $(".edit-notification").unbind().on("click", function() {
-        alert("Clicked");
         var tr = $(this).parent().parent();
         var index = tr.parent().children().index(tr);
-        alert("Index: "+index);
         var notification = notifications[index];
-        alert("Title: "+notification["title"]);
         $("#title").val(notification["title"]);
         $("#content").val(notification["content"]);
         $("#edit-notification-title").html("Ubah Notifikasi");
