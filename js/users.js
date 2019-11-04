@@ -53,6 +53,7 @@ function setUserClickListener() {
         $("#edit-user-phone").val(user["phone"]);
         $("#edit-user-email").val(user["email"]);
         $("#edit-user-password").val(user["password"]);
+        $("#edit-user-vip").val(user["vip_password"]);
         $("#active-connections").css("display", "block");
         $("#active-connections").val("" + user["active_connections"]);
         $("#active-connections-div").css("display", "block");
@@ -91,6 +92,7 @@ function setUserClickListener() {
             var phone = $("#edit-user-phone").val().trim();
             var email = $("#edit-user-email").val().trim();
             var password = $("#edit-user-password").val().trim();
+            var vipPassword = $("#edit-user-vip").val().trim();
             var city = $("#edit-user-city").val().trim();
             var endTimeString = $("#end-time").val();
             console.log("Time: " + endTimeString);
@@ -212,6 +214,7 @@ function addUser() {
     $("#edit-user-phone").val("");
     $("#edit-user-email").val("");
     $("#edit-user-password").val("");
+    $("#edit-user-vip").val("");
     $("#active-connections-div").css("display", "none");
     $("#active-connections").val("").css("display", "none");
     $("#maximum-connections").val("1");
@@ -226,6 +229,7 @@ function addUser() {
         var phone = $("#edit-user-phone").val().trim();
         var email = $("#edit-user-email").val().trim();
         var password = $("#edit-user-password").val().trim();
+        var vipPassword = $("#edit-user-vip").val().trim();
         var city = $("#edit-user-city").val().trim();
         var endDateString = $("#end-time").val();
         var year = parseInt(endDateString.split("-")[0]);
@@ -255,6 +259,10 @@ function addUser() {
             show("Mohon masukkan kata sandi");
             return;
         }
+        if (vipPassword == "") {
+            show("Mohon masukkan kata sandi VIP");
+            return;
+        }
         if (maximumConnections <= 0) {
             show("Mohon masukkan jumlah maksimal koneksi aktif");
             return;
@@ -265,6 +273,7 @@ function addUser() {
         fd.append("username", username);
         fd.append("phone", phone);
         fd.append("password", password);
+        fd.append("vip_password", vipPassword);
         fd.append("email", email);
         fd.append("active_connections", activeConnections);
         fd.append("maximum_connections", maximumConnections);
