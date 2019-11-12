@@ -1,5 +1,6 @@
 var currentMaximumConnections = 1;
 var currentProfilePicture = "";
+var allUsers;
 var users;
 
 $(document).ready(function () {
@@ -16,21 +17,54 @@ function getUsers() {
         cache: false,
         success: function (a) {
             users = JSON.parse(a);
+            allUsers = JSON.parse(a);
             for (var i = 0; i < users.length; i++) {
                 var user = users[i];
                 var trial = "Tidak";
                 if (parseInt(user["is_trial"]) == 1) {
                     trial = "Ya";
                 }
+                var endDate = parseInt(user["end_date"]);
+                var currentDate = new Date().getTime();
+                console.log("End date: " + endDate);
+                console.log("Current date: " + currentDate);
+                var remainingTimeMillis = endDate - currentDate;
+
+                var remainingSeconds = Math.floor((remainingTimeMillis / 1000) % 60);
+                var remainingMinutes = Math.floor((remainingTimeMillis / 1000 / 60) % 60);
+                var remainingHours = Math.floor((remainingTimeMillis / (1000 * 60 * 60)) % 24);
+                var remainingDays = Math.floor(remainingTimeMillis / (1000 * 60 * 60 * 24));
+                var remainingMonths = Math.floor(remainingTimeMillis / (1000 * 60 * 60 * 24 * 30));
+                var remainingYears = Math.floor(remainingTimeMillis / (1000 * 60 * 60 * 24 * 30 * 12));
+
+                var remainingTimeString = "";
+                if (remainingSeconds > 0) {
+                    remainingTimeString = (remainingSeconds + " detik ");
+                }
+                if (remainingMinutes > 0) {
+                    remainingTimeString = (remainingMinutes + " menit ");
+                }
+                if (remainingHours > 0) {
+                    remainingTimeString = (remainingHours + " jam ");
+                }
+                if (remainingDays > 0) {
+                    remainingTimeString = (remainingDays + " hari ");
+                }
+                if (remainingMonths > 0) {
+                    remainingTimeString = (remainingMonths + " bulan ");
+                }
+                if (remainingYears > 0) {
+                    remainingTimeString = (remainingYears + " tahun ");
+                }
                 $("#users").append("" +
                     "<tr>" +
-                    "<td><div style='background-color: #2f2e4d; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: white;'>" + i + "</div></td>" +
+                    "<td><div style='background-color: #2f2e4d; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: white;'>" + (i + 1) + "</div></td>" +
                     "<td>" + user["name"] + "</td>" +
                     "<td>" + user["email"] + "</td>" +
-                    "<td>" + user["password"] + "</td>" +
                     "<td>" + user["username"] + "</td>" +
                     "<td>" + user["active_connections"] + "</td>" +
                     "<td>" + trial + "</td>" +
+                    "<td>" + remainingTimeString + "</td>" +
                     "<td><a class='edit-user link'>Ubah</a></td>" +
                     "<td><a class='delete-user link'>Hapus</a></td>" +
                     "</tr>"
@@ -54,6 +88,10 @@ function setUserClickListener() {
         $("#edit-user-email").val(user["email"]);
         $("#edit-user-password").val(user["password"]);
         $("#edit-user-vip").val(user["vip_password"]);
+        var endDate = parseInt(user["end_date"]);
+        var currentDate = new Date().getTime();
+        var remainingTimeMillis = endDate - currentDate;
+        $("#edit-user-remaining-time").val(new Date(remainingTimeMillis).toLocaleDateString("id-ID"));
         $("#active-connections").css("display", "block");
         $("#active-connections").val("" + user["active_connections"]);
         $("#active-connections-div").css("display", "block");
@@ -364,4 +402,76 @@ function selectProfilePicture() {
         fr.readAsDataURL($(this).prop("files")[0]);
     });
     $("#edit-user-select-profile-picture").click();
+}
+
+function search() {
+    var keyword = $("#keyword").val().toLowerCase().trim();
+    $("#users").find("*").remove();
+    if (keyword == "") {
+        for (var i = 0; i < users.length; i++) {
+            var user = users[i];
+            displayUser(user, i+1);
+        }
+    } else {
+        for (var i = 0; i < users.length; i++) {
+            var user = users[i];
+            console.log("Searched user name: "+keyword);
+            console.log("User name: "+user["username"]);
+            if (user["username"].toLowerCase().trim().includes(keyword)) {
+                displayUser(user, i+1);
+            }
+        }
+    }
+}
+
+function displayUser(user, position) {
+    var trial = "Tidak";
+    if (parseInt(user["is_trial"]) == 1) {
+        trial = "Ya";
+    }
+    var endDate = parseInt(user["end_date"]);
+    var currentDate = new Date().getTime();
+    console.log("End date: " + endDate);
+    console.log("Current date: " + currentDate);
+    var remainingTimeMillis = endDate - currentDate;
+
+    var remainingSeconds = Math.floor((remainingTimeMillis / 1000) % 60);
+    var remainingMinutes = Math.floor((remainingTimeMillis / 1000 / 60) % 60);
+    var remainingHours = Math.floor((remainingTimeMillis / (1000 * 60 * 60)) % 24);
+    var remainingDays = Math.floor(remainingTimeMillis / (1000 * 60 * 60 * 24));
+    var remainingMonths = Math.floor(remainingTimeMillis / (1000 * 60 * 60 * 24 * 30));
+    var remainingYears = Math.floor(remainingTimeMillis / (1000 * 60 * 60 * 24 * 30 * 12));
+
+    var remainingTimeString = "";
+    if (remainingSeconds > 0) {
+        remainingTimeString = (remainingSeconds + " detik ");
+    }
+    if (remainingMinutes > 0) {
+        remainingTimeString = (remainingMinutes + " menit ");
+    }
+    if (remainingHours > 0) {
+        remainingTimeString = (remainingHours + " jam ");
+    }
+    if (remainingDays > 0) {
+        remainingTimeString = (remainingDays + " hari ");
+    }
+    if (remainingMonths > 0) {
+        remainingTimeString = (remainingMonths + " bulan ");
+    }
+    if (remainingYears > 0) {
+        remainingTimeString = (remainingYears + " tahun ");
+    }
+    $("#users").append("" +
+        "<tr>" +
+        "<td><div style='background-color: #2f2e4d; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: white;'>" + position + "</div></td>" +
+        "<td>" + user["name"] + "</td>" +
+        "<td>" + user["email"] + "</td>" +
+        "<td>" + user["username"] + "</td>" +
+        "<td>" + user["active_connections"] + "</td>" +
+        "<td>" + trial + "</td>" +
+        "<td>" + remainingTimeString + "</td>" +
+        "<td><a class='edit-user link'>Ubah</a></td>" +
+        "<td><a class='delete-user link'>Hapus</a></td>" +
+        "</tr>"
+    );
 }

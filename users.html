@@ -65,6 +65,10 @@
             <div style="margin-left: 10px; font-size: 25px; color: #717179;">Daftar Pengguna</div>
         </div>
         <div style="display: flex; justify-content: flex-end; width: 1000px; margin-left: 20px;">
+            <div style="position: relative; background-color: #eeeeee; border: 1px solid #cccccc; border-radius: 2px; width: 250px; height: 32px; margin-right: 10px;">
+                <input id="keyword" style="background-color: transparent; border: 0; padding-left: 5px; padding-right: 5px; position: absolute; top: 0; left: 0; width: calc(100% - 10px); height: 100%;">
+                <button style="position: absolute; top: 2px; right: 2px; bottom: 2px; height: 28px;" onclick="search()" class="button6">Cari</button>
+            </div>
             <button onclick="addUser()" class="button6">Tambah Pengguna</button>
         </div>
         <table class="flat-table" style="width: 1000px; margin-left: 20px; margin-top: 10px;">
@@ -73,10 +77,10 @@
                 <th>No.</th>
                 <th>Nama</th>
                 <th>Email</th>
-                <th>Kata Sandi</th>
                 <th>Nama Pengguna</th>
                 <th>Koneksi</th>
                 <th>Trial</th>
+                <th>Sisa Masa Aktif</th>
                 <th>Ubah</th>
                 <th>Hapus</th>
             </tr>
@@ -100,15 +104,15 @@
         <input class="input2" id="edit-user-phone" type="text" style="margin-left: 20px; margin-right: 20px;">
         <div style="color: #333333; font-family: PalanquinBold; margin-left: 20px; margin-right: 20px;">Email:</div>
         <input class="input2" id="edit-user-email" type="text" style="margin-left: 20px; margin-right: 20px;">
-        <div style="color: #333333; font-family: PalanquinBold; margin-left: 20px; margin-right: 20px;">Kata sandi:
-        </div>
-        <input class="input2" id="edit-user-password" type="password" style="margin-left: 20px; margin-right: 20px;">
         <div style="color: #333333; font-family: PalanquinBold; margin-left: 20px; margin-right: 20px;">Kata sandi VIP:
         </div>
         <input class="input2" id="edit-user-vip" type="password" style="margin-left: 20px; margin-right: 20px;">
         <div style="color: #333333; font-family: PalanquinBold; margin-left: 20px; margin-right: 20px;">Nama pengguna:
         </div>
         <input class="input2" id="edit-user-username" type="text" style="margin-left: 20px; margin-right: 20px;">
+        <div style="color: #333333; font-family: PalanquinBold; margin-left: 20px; margin-right: 20px;">Sisa masa aktif:
+        </div>
+        <input class="input2" id="edit-user-remaining-time" type="text" style="margin-left: 20px; margin-right: 20px;">
         <div style="margin-top: 5px; width: 100%; display: flex; justify-content: center;">
             <div class="button6"
                  style="cursor: pointer; border-radius: 30px; width: 200px; display: flex; justify-content: center; align-items: center; flex-flow: row nowrap;">
