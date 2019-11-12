@@ -1,5 +1,6 @@
 const PHP_PATH = "http://iptvjoss.com/jossstreambe/php/";
 
+
 function show(msg) {
     $("#toast-msg").html(msg);
     $("#toast-container").css("display", "flex").hide().fadeIn(500);
