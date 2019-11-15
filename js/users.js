@@ -407,17 +407,20 @@ function selectProfilePicture() {
 function search() {
     var keyword = $("#keyword").val().toLowerCase().trim();
     $("#users").find("*").remove();
+    users = [];
     if (keyword == "") {
-        for (var i = 0; i < users.length; i++) {
-            var user = users[i];
+        for (var i = 0; i < allUsers.length; i++) {
+            var user = allUsers[i];
+            users.push(user);
             displayUser(user, i+1);
         }
     } else {
-        for (var i = 0; i < users.length; i++) {
-            var user = users[i];
+        for (var i = 0; i < allUsers.length; i++) {
+            var user = allUsers[i];
             console.log("Searched user name: "+keyword);
             console.log("User name: "+user["username"]);
             if (user["username"].toLowerCase().trim().includes(keyword)) {
+                users.push(user);
                 displayUser(user, i+1);
             }
         }

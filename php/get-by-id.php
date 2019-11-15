@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
-$name = $_GET["name"];
-$id = intval($_GET["id"]);
+$name = $_POST["name"];
+$id = intval($_POST["id"]);
 $items = [];
 $sql = "SELECT * FROM " . $name . " WHERE id=" . $id;
 $results = $c->query($sql);

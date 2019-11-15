@@ -1,6 +1,6 @@
 <?php
 include 'db.php';
-$name = $_GET["name"];
+$name = $_POST["name"];
 $items = [];
 $results = $c->query("SELECT * FROM " . $name);
 if ($results && $results->num_rows > 0) {
