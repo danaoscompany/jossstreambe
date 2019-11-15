@@ -477,4 +477,5 @@ function displayUser(user, position) {
         "<td><a class='delete-user link'>Hapus</a></td>" +
         "</tr>"
     );
+    setUserClickListener();
 }
