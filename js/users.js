@@ -1,11 +1,37 @@
 var currentMaximumConnections = 1;
 var currentProfilePicture = "";
 var allUsers;
+var checkedUserIDs = [];
 var users;
 
 $(document).ready(function () {
+    $("#check-all").change(function() {
+        if ($('#check-all-checkbox').prop('checked')) {
+            for (let j=0; j<users.length; j++) {
+                checkedUserIDs.push(users[j]["id"]);
+            }
+            for (let i=0; i<users.length; i++) {
+                $("#users").find("#defaultUnchecked"+(i+1)).prop("checked", true);
+            }
+            setDeleteButtonVisible(true);
+        } else {
+            checkedUserIDs = [];
+            for (let i=0; i<users.length; i++) {
+                $("#users").find("#defaultUnchecked"+(i+1)).prop("checked", false);
+            }
+            setDeleteButtonVisible(false);
+        }
+    });
     getUsers();
 });
+
+function setDeleteButtonVisible(visible) {
+    if (visible) {
+        $("#delete").css("display", "visible");
+    } else {
+        $("#delete").css("display", "none");
+    }
+}
 
 function getUsers() {
     $("#users").find("*").remove();
@@ -26,8 +52,6 @@ function getUsers() {
                 }
                 var endDate = parseInt(user["end_date"]);
                 var currentDate = new Date().getTime();
-                console.log("End date: " + endDate);
-                console.log("Current date: " + currentDate);
                 var remainingTimeMillis = endDate - currentDate;
 
                 var remainingSeconds = Math.floor((remainingTimeMillis / 1000) % 60);
@@ -59,6 +83,10 @@ function getUsers() {
                 $("#users").append("" +
                     "<tr>" +
                     "<td><div style='background-color: #2f2e4d; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: white;'>" + (i + 1) + "</div></td>" +
+                    "<td><div class='custom-control custom-checkbox'>"+
+                        "<input type='checkbox' class='custom-control-input' id='defaultUnchecked"+(i+1)+"'>"+
+                        "<label class='custom-control-label' for='defaultUnchecked"+(i+1)+"'></label>"+
+                    "</div></td>"+
                     "<td>" + user["name"] + "</td>" +
                     "<td>" + user["email"] + "</td>" +
                     "<td>" + user["username"] + "</td>" +
@@ -76,8 +104,69 @@ function getUsers() {
     });
 }
 
+function deleteUsers() {
+    $("#confirm-title").html("Hapus Pengguna");
+    $("#close-confirm").unbind().on("click", function() {
+        $("#confirm-container").fadeOut(300);
+    });
+    $("#confirm-msg").html("Apakah Anda yakin ingin menghapus pengguna yang dipilih?");
+    $("#confirm-cancel").unbind().on("click", function() {
+        $("#confirm-container").fadeOut(300);
+    });
+    $("#confirm-ok").unbind().on("click", function() {
+        $("#confirm-container").hide();
+        showProgress("Menghapus pengguna yang dipilih");
+        var fd = new FormData();
+        let ids = [];
+        for (let i=0; i<checkedUserIDs.length; i++) {
+            let userID = checkedUserIDs[i];
+            ids.push(userID);
+        }
+        fd.append("id", JSON.stringify(ids));
+        $.ajax({
+            type: 'POST',
+            url: PHP_PATH+'delete-users.php',
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function(response) {
+                console.log("Response: "+response);
+                getUsers();
+            }
+        });
+    });
+    $("#confirm-container").css("display", "flex").hide().fadeIn(300);
+}
+
+function checkAllChecked() {
+    var allChecked = false;
+    for (var i=0; i<users.length; i++) {
+        var checked = $("#users").find("#defaultUnchecked"+(i+1)).prop("checked");
+        if (checked) {
+            allChecked = true;
+            break;
+        }
+    }
+    if (allChecked) {
+        $("#delete").css("display", "block");
+    } else {
+        $("#delete").css("display", "none");
+    }
+}
+
 function setUserClickListener() {
-    $(".edit-user").on("click", function () {
+    $(".custom-control-input").change(function() {
+        checkAllChecked();
+        var id = $(this).attr('id');
+        var tr = $(this).parent().parent().parent();
+        var index = $("#users").children().index(tr);
+        checkedUserIDs.push(users[index]["id"]);
+        if ($(this).prop('checked')) {
+            $("#delete").css("display", "block");
+        }
+    });
+    $(".edit-user").unbind().on("click", function () {
         var tr = $(this).parent().parent();
         var index = tr.parent().children().index(tr);
         var user = users[index];
@@ -434,8 +523,6 @@ function displayUser(user, position) {
     }
     var endDate = parseInt(user["end_date"]);
     var currentDate = new Date().getTime();
-    console.log("End date: " + endDate);
-    console.log("Current date: " + currentDate);
     var remainingTimeMillis = endDate - currentDate;
 
     var remainingSeconds = Math.floor((remainingTimeMillis / 1000) % 60);

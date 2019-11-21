@@ -1,5 +1,8 @@
 var settings;
 var banks;
+var bankNames = [
+    "BNI", "BCA", "BRI", "BTN", "Mandiri", "CIMB Niaga", "Permata", "Danamon"
+];
 
 $(document).ready(function() {
     getSettings();
@@ -45,6 +48,7 @@ function getSettings() {
                         "<td>"+bank["number"]+"</td>"+
                         "<td>"+bankName+"</td>"+
                         "<td>"+bank["holder"]+"</td>"+
+                        "<td><a class='edit-bank link'>Ubah</a></td>"+
                         "<td><a class='delete-bank link'>Hapus</a></td>"+
                     "</tr>"
                 );
@@ -56,14 +60,52 @@ function getSettings() {
 }
 
 function getBankByType(index) {
-    var bankNames = [
-        "BNI", "BCA", "BRI", "BTN", "Mandiri", "CIMB Niaga", "Permata", "Danamon"
-    ];
     return bankNames[index];
 }
 
+function getBankIndexByName(name) {
+    for (let i=0; i<bankNames.length; i++) {
+        if (bankNames[i] == name) {
+            return i+1;
+        }
+    }
+    return 1;
+}
+
 function setDeleteBankClickListener() {
-    $(".delete-bank").on("click", function() {
+    $(".edit-bank").unbind().on("click", function() {
+        var tr = $(this).parent().parent();
+        var index = tr.parent().children().index(tr);
+        var bankInfo = banks[index];
+        $("#edit-bank-holder").val(bankInfo["holder"]);
+        var bankName = getBankByType(parseInt(bankInfo["type"])-1);
+        $("#edit-bank-name").val(bankName);
+        $("#edit-bank-number").val(bankInfo["number"]);
+        $("#edit-bank-ok").unbind().on("click", function() {
+            $("#edit-bank-container").fadeOut(300);
+            var bankName = $("#edit-bank-name").val().trim();
+            settings["settings"]["banks"][index]["name"] = $("#edit-bank-name").val().trim();
+            settings["settings"]["banks"][index]["type"] = ""+getBankIndexByName(bankName);
+            settings["settings"]["banks"][index]["number"] = $("#edit-bank-number").val().trim();
+            settings["settings"]["banks"][index]["holder"] = $("#edit-bank-holder").val().trim();
+            showProgress("Mengubah info bank");
+            var fd = new FormData();
+            fd.append("content", JSON.stringify(settings));
+            $.ajax({
+                type: 'POST',
+                url: PHP_PATH+'update-settings.php',
+                data: fd,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(response) {
+                    getSettings();
+                }
+            });
+        });
+        $("#edit-bank-container").css("display", "flex").hide().fadeIn(300);
+    });
+    $(".delete-bank").unbind().on("click", function() {
         var tr = $(this).parent().parent();
         var index = tr.parent().children().index(tr);
         $("#confirm-title").html("Hapus Bank");
@@ -214,4 +256,11 @@ function updateSettings() {
             getSettings();
         }
     });
+}
+
+function closeEditBankDialog() {
+    $("#edit-bank-container").fadeOut(300);
+}
+
+function editBank() {
 }
