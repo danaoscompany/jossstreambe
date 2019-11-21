@@ -11,6 +11,22 @@ $(document).ready(function() {
 function getSettings() {
     $("#banks").find("*").remove();
     showProgress("Memuat pengaturan");
+    var fd = new FormData();
+    fd.append("name", "configuration");
+    fd.append("id", "app-version");
+    $.ajax({
+        type: 'POST',
+        url: PHP_PATH + 'get-by-id-string.php',
+        data: fd,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function (response) {
+            var config = JSON.parse(response)[0];
+            var appVersion = parseInt(config["config1"]);
+            $("#app-version").val(appVersion);
+        }
+    });
     $.ajax({
         type: 'GET',
         url: PHP_PATH+'get-settings.php',
@@ -85,7 +101,7 @@ function setDeleteBankClickListener() {
             $("#edit-bank-container").fadeOut(300);
             var bankName = $("#edit-bank-name").val().trim();
             settings["settings"]["banks"][index]["name"] = $("#edit-bank-name").val().trim();
-            settings["settings"]["banks"][index]["type"] = ""+getBankIndexByName(bankName);
+            settings["settings"]["banks"][index]["type"] = getBankIndexByName(bankName);
             settings["settings"]["banks"][index]["number"] = $("#edit-bank-number").val().trim();
             settings["settings"]["banks"][index]["holder"] = $("#edit-bank-holder").val().trim();
             showProgress("Mengubah info bank");
@@ -263,4 +279,24 @@ function closeEditBankDialog() {
 }
 
 function editBank() {
+}
+
+function saveAppVersion() {
+    var appVersion = $("#app-version").val().trim();
+    showProgress("Menyimpan info aplikasi");
+    if (appVersion != "") {
+        var fd = new FormData();
+        fd.append("app_version", $("#app-version").val().trim());
+        $.ajax({
+            type: 'POST',
+            url: PHP_PATH + 'update-app-version.php',
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function (response) {
+                hideProgress();
+            }
+        });
+    }
 }

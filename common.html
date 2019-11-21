@@ -48,7 +48,7 @@
             <img src="img/settings-2.png" width="50px" height="50px">
             <div style="margin-left: 10px; font-size: 25px; color: #717179;">Pengaturan Umum</div>
         </div>
-        <div style="margin-top: 20px; width: 160px; padding-right: 10px; padding-left: 10px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-top-left-radius: 30px; border-bottom-left-radius: 30px; margin-left: 20px; display: flex; flex-flow: row nowrap; align-items: center; justify-content: center; height: 45px; font-family: PalanquinBold; font-size: 18px; background-image: linear-gradient(#535281, #2f2e4d); color: white;">
+        <div style="margin-top: 20px; width: 300px; padding-right: 10px; padding-left: 10px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-top-left-radius: 30px; border-bottom-left-radius: 30px; margin-left: 20px; display: flex; flex-flow: row nowrap; align-items: center; justify-content: center; height: 45px; font-family: PalanquinBold; font-size: 18px; background-image: linear-gradient(#535281, #2f2e4d); color: white;">
             Rekening Bank
         </div>
         <table class="flat-table" style="margin-top: 20px; margin-left: 20px;">
@@ -75,7 +75,15 @@
         <div style="width: 600px; margin-left: 20px; display: flex; justify-content: flex-end;">
             <button onclick="addBank()" class="button6">Tambah</button>
         </div>
-
+        <div style="margin-top: 20px; width: 300px; padding-right: 10px; padding-left: 10px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-top-left-radius: 30px; border-bottom-left-radius: 30px; margin-left: 20px; display: flex; flex-flow: row nowrap; align-items: center; justify-content: center; height: 45px; font-family: PalanquinBold; font-size: 18px; background-image: linear-gradient(#535281, #2f2e4d); color: white;">
+            Pengaturan Aplikasi
+        </div>
+        <div style="font-family: PalanquinBold; margin-left: 20px; margin-top: 10px;">Versi aplikasi:</div>
+        <input id="app-version" class="input1" style="width: 400px; margin-top: 5px; margin-left: 20px;"
+               placeholder="Versi aplikasi" onkeypress="validate(event)">
+        <div style="width: 440px; display: flex; justify-content: flex-start; margin-top: 10px; margin-bottom: 20px;">
+            <button onclick="saveAppVersion()" class="button6" style="width: 200px; margin-left: 20px;">SIMPAN</button>
+        </div>
         <!--
         <div style="font-family: PalanquinBold; margin-left: 20px; margin-top: 10px;">Rekening utama:</div>
         <input id="account-number" class="input1" style="width: 400px; margin-top: 5px; margin-left: 20px;" placeholder="No. rekening">
@@ -83,8 +91,8 @@
         <input id="bank-name" class="input1" style="width: 400px; margin-top: 5px; margin-left: 20px;" placeholder="Nama bank">
         <div style="font-family: PalanquinBold; margin-left: 20px; margin-top: 5px;">Atas nama:</div>
         <input id="account-holder" class="input1" style="width: 400px; margin-top: 5px; margin-left: 20px;" placeholder="Atas nama">
-        <div style="margin-top: 20px; width: 160px; padding-left: 10px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; display: flex; flex-flow: row nowrap; align-items: center; height: 45px; font-family: PalanquinBold; font-size: 18px; background-image: linear-gradient(#f9a114, #fee453); color: white;">Daftar Harga</div>-->
-        <div style="margin-top: 20px; width: 160px; padding-right: 10px; padding-left: 10px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-top-left-radius: 30px; border-bottom-left-radius: 30px; margin-left: 20px; display: flex; flex-flow: row nowrap; align-items: center; justify-content: center; height: 45px; font-family: PalanquinBold; font-size: 18px; background-image: linear-gradient(#535281, #2f2e4d); color: white;">
+        <div style="margin-top: 20px; width: 300px; padding-left: 10px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; display: flex; flex-flow: row nowrap; align-items: center; height: 45px; font-family: PalanquinBold; font-size: 18px; background-image: linear-gradient(#f9a114, #fee453); color: white;">Daftar Harga</div>-->
+        <div style="margin-top: 30px; width: 300px; padding-right: 10px; padding-left: 10px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-top-left-radius: 30px; border-bottom-left-radius: 30px; margin-left: 20px; display: flex; flex-flow: row nowrap; align-items: center; justify-content: center; height: 45px; font-family: PalanquinBold; font-size: 18px; background-image: linear-gradient(#535281, #2f2e4d); color: white;">
             Daftar Harga
         </div>
         <!-- HARGA 1 BULAN -->
