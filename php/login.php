@@ -5,7 +5,7 @@ $password = $_POST["password"];
 $results = $c->query("SELECT * FROM admins WHERE email='" . $email . "'");
 if ($results && $results->num_rows > 0) {
     $row = $results->fetch_assoc();
-    if ($row["accepted"] == 0) {
+    if ($row["verified"] == 0) {
         echo -3;
         return;
     }
@@ -13,9 +13,9 @@ if ($results && $results->num_rows > 0) {
         echo -2;
         return;
     }
-    session_id("jossstream");
+    session_id("prakuliah");
     session_start();
-    $_SESSION["jossstream_user_id"] = $row["id"];
+    $_SESSION["prakuliah_user_id"] = $row["id"];
     echo 0;
 } else {
     echo -1;

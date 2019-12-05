@@ -1,5 +1,5 @@
 <?php
-session_id("jossstream");
+session_id("prakuliah");
 session_start();
-unset($_SESSION["jossstream_user_id"]);
+unset($_SESSION["prakuliah_user_id"]);
 session_destroy();
