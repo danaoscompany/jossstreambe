@@ -46,10 +46,6 @@ function getUsers() {
             allUsers = JSON.parse(a);
             for (var i = 0; i < users.length; i++) {
                 var user = users[i];
-                var trial = "Tidak";
-                if (parseInt(user["is_trial"]) == 1) {
-                    trial = "Ya";
-                }
                 var endDate = parseInt(user["end_date"]);
                 var currentDate = new Date().getTime();
                 var remainingTimeMillis = endDate - currentDate;
@@ -87,12 +83,10 @@ function getUsers() {
                         "<input type='checkbox' class='custom-control-input' id='defaultUnchecked"+(i+1)+"'>"+
                         "<label class='custom-control-label' for='defaultUnchecked"+(i+1)+"'></label>"+
                     "</div></td>"+
-                    "<td>" + user["name"] + "</td>" +
+                    "<td>" + user["first_name"] +" " + user["last_name"] + "</td>" +
                     "<td>" + user["email"] + "</td>" +
-                    "<td>" + user["username"] + "</td>" +
-                    "<td>" + user["active_connections"] + "</td>" +
-                    "<td>" + trial + "</td>" +
-                    "<td>" + remainingTimeString + "</td>" +
+                    "<td>" + user["phone"] + "</td>" +
+                    "<td>" + user["nim"] + "</td>" +
                     "<td><a class='edit-user link'>Ubah</a></td>" +
                     "<td><a class='delete-user link'>Hapus</a></td>" +
                     "</tr>"

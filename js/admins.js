@@ -26,7 +26,7 @@ function getAdmins() {
                 $("#admins").append(""+
                     "<tr>"+
                     "<td><div style='background-color: #2f2e4d; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: white;'>"+i+"</div></td>"+
-                    "<td>"+admin["name"]+"</td>"+
+                    "<td>"+admin["first_name"]+" "+admin["last_name"]+"</td>"+
                     "<td>"+admin["phone"]+"</td>"+
                     "<td>"+admin["password"]+"</td>"+
                     "<td>"+admin["email"]+"</td>"+
@@ -51,7 +51,7 @@ function setAdminClickListener() {
         $("#edit-admin-phone").val(admin["phone"]);
         $("#edit-admin-email").val(admin["email"]);
         $("#edit-admin-password").val(admin["password"]);
-        if (admin["accepted"] == 0) {
+        if (admin["verified"] == 0) {
             $("#accepted option")[0].selected = true;
         } else {
             $("#accepted option")[1].selected = true;
@@ -86,7 +86,7 @@ function setAdminClickListener() {
             fd.append("phone", phone);
             fd.append("password", password);
             fd.append("email", email);
-            fd.append("accepted", accepted);
+            fd.append("verified", accepted);
             $.ajax({
                 type: 'POST',
                 url: PHP_PATH+'edit-admin.php',
@@ -182,7 +182,7 @@ function addAdmin() {
         fd.append("phone", phone);
         fd.append("password", password);
         fd.append("email", email);
-        fd.append("accepted", accepted);
+        fd.append("verified", accepted);
         fd.append("register_date", new Date().getTime());
         $.ajax({
             type: 'POST',

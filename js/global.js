@@ -1,4 +1,6 @@
-const PHP_PATH = "http://iptvjoss.com/jossstreambe/php/";
+const HOST = "localhost/prakuliah";
+//const PHP_PATH = "http://iptvjoss.com/prakuliah/php/";
+const PHP_PATH = "http://"+HOST+"/php/";
 
 function show(msg) {
     $("#toast-msg").html(msg);
@@ -82,6 +84,10 @@ function openAdmins() {
     window.location.href = "admins.html";
 }
 
+function openArticles() {
+    window.location.href = "articles.html";
+}
+
 function openPurchases() {
     window.location.href = "purchases.html";
 }
@@ -109,4 +115,12 @@ function uuidv4() {
         var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
     });
+}
+
+function constructFormData(...values) {
+    var fd = new FormData();
+    for (var i=0; i<values.length; i+=2) {
+        fd.append(values[i], values[i+1]);
+    }
+    return fd;
 }
